@@ -13,9 +13,9 @@ const viewOneAccount_By_Email = email => {
   });
 };
 
-const viewOneAccount_By_Phone = phone => {
+const viewOneAccount_By_Phone = (country_code, phone) => {
   return new Promise((resolve, reject) => {
-    db.query("SELECT * FROM Account WHERE phone = $1;", [phone])
+    db.query("SELECT * FROM Account WHERE country_code = $1 AND phone = $2;", [country_code, phone])
       .then(function(data) {
         resolve(data[0]);
       })
