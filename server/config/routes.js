@@ -5,8 +5,12 @@ const ProfileController = require("../controllers/profile");
 const RecordController = require("../controllers/record");
 const SoundtrackController = require("../controllers/soundtrack");
 const TagController = require("../controllers/tag");
+const AuthController = require("../controllers/auth");
 
 const routers = router
+	.get("/api/auth/:email", AuthController.verify)
+	.post("/api/auth/", AuthController.activate)
+	.del("/api/auth/:email", AuthController.destroy)
   .get("/api/account/email/:email", AccountController.showByEmail)
   .get("/api/account/country_code/:country_code/phone/:phone", AccountController.showByPhone)
   .get("/api/profile/email/:email", ProfileController.showByEmail)
