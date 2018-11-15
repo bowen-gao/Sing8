@@ -4,7 +4,6 @@ const koa = require('koa');
 const routers = require('./config/routes')
 const bodyParser = require('koa-bodyparser');
 
-
 const app = new koa();
 app.use(bodyParser());
 

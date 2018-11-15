@@ -13,11 +13,11 @@ const viewOneProfile_By_Email = email => {
   });
 };
 
-const viewAllProfile_By_username = username => {
+const viewAllProfile_By_Username = username => {
   return new Promise((resolve, reject) => {
     db.query("SELECT * FROM Profile WHERE username = $1;", [username])
       .then(data => {
-        resolve(data[0]);
+        resolve(data);
       })
       .catch(error => {
         reject("ERROR:", error);
@@ -115,11 +115,10 @@ const updateOneProfile_username = (email, username) => {
 
 module.exports = {
   viewOneProfile_By_Email: viewOneProfile_By_Email,
-  viewAllProfile_By_username: viewAllProfile_By_username,
   createOneProfile: createOneProfile,
   deleteOneProfile: deleteOneProfile,
   updateOneProfile_facebook: updateOneProfile_facebook,
   updateOneProfile_twitter: updateOneProfile_twitter,
   updateOneProfile_weibo: updateOneProfile_weibo,
-  updateOneProfile_username: updateOneProfile_username
+  viewAllProfile_By_Username: viewAllProfile_By_Username
 };
