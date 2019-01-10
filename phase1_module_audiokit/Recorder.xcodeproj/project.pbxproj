@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		87F4621421E5C67300DC66F8 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F4621221E5C67300DC66F8 /* AudioKit.framework */; };
-		87F4621521E5C67300DC66F8 /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F4621321E5C67300DC66F8 /* AudioKitUI.framework */; };
+		1D3F3B8B21E6F9AE0086ADAE /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3F3B8921E6F9AE0086ADAE /* AudioKitUI.framework */; };
+		1D3F3B8C21E6F9AE0086ADAE /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3F3B8A21E6F9AE0086ADAE /* AudioKit.framework */; };
 		87F4621721E5C8A800DC66F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */; };
 		87F4621B21E5D31A00DC66F8 /* Soundtracks.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87F4621A21E5D31A00DC66F8 /* Soundtracks.xcassets */; };
 		87F4621D21E5D99600DC66F8 /* SoundtrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4621C21E5D99600DC66F8 /* SoundtrackCell.swift */; };
@@ -22,8 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		87F4621221E5C67300DC66F8 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = "Recorder/AudioKit-iOS/AudioKit.framework"; sourceTree = "<group>"; };
-		87F4621321E5C67300DC66F8 /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = "Recorder/AudioKit-iOS/AudioKitUI.framework"; sourceTree = "<group>"; };
+		1D3F3B8921E6F9AE0086ADAE /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = Recorder/AudioKitUI.framework; sourceTree = "<group>"; };
+		1D3F3B8A21E6F9AE0086ADAE /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = Recorder/AudioKit.framework; sourceTree = "<group>"; };
 		87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87F4621A21E5D31A00DC66F8 /* Soundtracks.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Soundtracks.xcassets; sourceTree = "<group>"; };
 		87F4621C21E5D99600DC66F8 /* SoundtrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundtrackCell.swift; sourceTree = "<group>"; };
@@ -43,8 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87F4621421E5C67300DC66F8 /* AudioKit.framework in Frameworks */,
-				87F4621521E5C67300DC66F8 /* AudioKitUI.framework in Frameworks */,
+				1D3F3B8C21E6F9AE0086ADAE /* AudioKit.framework in Frameworks */,
+				1D3F3B8B21E6F9AE0086ADAE /* AudioKitUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,8 +54,8 @@
 		7814CAEB1D463D04004EA355 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				87F4621221E5C67300DC66F8 /* AudioKit.framework */,
-				87F4621321E5C67300DC66F8 /* AudioKitUI.framework */,
+				1D3F3B8A21E6F9AE0086ADAE /* AudioKit.framework */,
+				1D3F3B8921E6F9AE0086ADAE /* AudioKitUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -327,6 +327,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Recorder/AudioKit-iOS",
+					"$(PROJECT_DIR)/Recorder",
 				);
 				INFOPLIST_FILE = Recorder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -347,6 +348,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Recorder/AudioKit-iOS",
+					"$(PROJECT_DIR)/Recorder",
 				);
 				INFOPLIST_FILE = Recorder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
