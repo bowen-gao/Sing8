@@ -14,6 +14,10 @@
 		875133B021CED59B00657F04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 875133AE21CED59B00657F04 /* LaunchScreen.storyboard */; };
 		875133BB21CED59B00657F04 /* singerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875133BA21CED59B00657F04 /* singerTests.swift */; };
 		875133C621CED59B00657F04 /* singerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875133C521CED59B00657F04 /* singerUITests.swift */; };
+		C157F1F821E7AD7B00BA039E /* SpotlightLyrics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C157F1F721E7AD7B00BA039E /* SpotlightLyrics.framework */; };
+		C157F1FA21E7ADC400BA039E /* SpotlightLyrics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C157F1F921E7ADC400BA039E /* SpotlightLyrics.framework */; };
+		C157F1FB21E7ADC400BA039E /* SpotlightLyrics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C157F1F921E7ADC400BA039E /* SpotlightLyrics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C157F1FE21E7AE4200BA039E /* Santa Monica Dream.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C157F1FD21E7AE4200BA039E /* Santa Monica Dream.lrc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +37,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C157F1FC21E7ADC400BA039E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C157F1FB21E7ADC400BA039E /* SpotlightLyrics.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		875133A221CED59A00657F04 /* singer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = singer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		875133A521CED59A00657F04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +65,9 @@
 		875133C121CED59B00657F04 /* singerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = singerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		875133C521CED59B00657F04 /* singerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singerUITests.swift; sourceTree = "<group>"; };
 		875133C721CED59B00657F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C157F1F721E7AD7B00BA039E /* SpotlightLyrics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotlightLyrics.framework; path = singer/SpotlightLyrics.framework; sourceTree = "<group>"; };
+		C157F1F921E7ADC400BA039E /* SpotlightLyrics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotlightLyrics.framework; path = singer/SpotlightLyrics.framework; sourceTree = "<group>"; };
+		C157F1FD21E7AE4200BA039E /* Santa Monica Dream.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Santa Monica Dream.lrc"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C157F1F821E7AD7B00BA039E /* SpotlightLyrics.framework in Frameworks */,
+				C157F1FA21E7ADC400BA039E /* SpotlightLyrics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +100,12 @@
 		8751339921CED59A00657F04 = {
 			isa = PBXGroup;
 			children = (
+				C157F1F921E7ADC400BA039E /* SpotlightLyrics.framework */,
 				875133A421CED59A00657F04 /* singer */,
 				875133B921CED59B00657F04 /* singerTests */,
 				875133C421CED59B00657F04 /* singerUITests */,
 				875133A321CED59A00657F04 /* Products */,
+				C157F1F421E7ABEB00BA039E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +122,7 @@
 		875133A421CED59A00657F04 /* singer */ = {
 			isa = PBXGroup;
 			children = (
+				C157F1FD21E7AE4200BA039E /* Santa Monica Dream.lrc */,
 				875133A521CED59A00657F04 /* AppDelegate.swift */,
 				875133A721CED59A00657F04 /* ViewController.swift */,
 				875133A921CED59A00657F04 /* Main.storyboard */,
@@ -125,6 +151,14 @@
 			path = singerUITests;
 			sourceTree = "<group>";
 		};
+		C157F1F421E7ABEB00BA039E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C157F1F721E7AD7B00BA039E /* SpotlightLyrics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +169,7 @@
 				8751339E21CED59A00657F04 /* Sources */,
 				8751339F21CED59A00657F04 /* Frameworks */,
 				875133A021CED59A00657F04 /* Resources */,
+				C157F1FC21E7ADC400BA039E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C157F1FE21E7AE4200BA039E /* Santa Monica Dream.lrc in Resources */,
 				875133B021CED59B00657F04 /* LaunchScreen.storyboard in Resources */,
 				875133AD21CED59B00657F04 /* Assets.xcassets in Resources */,
 				875133AB21CED59A00657F04 /* Main.storyboard in Resources */,
@@ -433,6 +469,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/singer",
+					"$(SRCROOT)/**",
+				);
 				INFOPLIST_FILE = singer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +491,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/singer",
+					"$(SRCROOT)/**",
+				);
 				INFOPLIST_FILE = singer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

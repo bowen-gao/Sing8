@@ -12,6 +12,7 @@
 import AudioKit
 import AudioKitUI
 import UIKit
+import SpotlightLyrics
 
 class RecordViewController: UIViewController {
 
@@ -26,16 +27,16 @@ class RecordViewController: UIViewController {
     let mic = AKMicrophone()
 
     var state = State.readyToRecord
-
+    private var timer: Timer? = nil
+    private var currentTime: TimeInterval = 0
+    private let totalDuration: TimeInterval = 332
     @IBOutlet private var plot: AKNodeOutputPlot?
     @IBOutlet private weak var infoLabel: UILabel!
     @IBOutlet private weak var resetButton: UIButton!
     @IBOutlet private weak var mainButton: UIButton!
-    @IBOutlet private weak var frequencySlider: AKSlider!
-    @IBOutlet private weak var resonanceSlider: AKSlider!
-    @IBOutlet private weak var loopButton: UIButton!
-    @IBOutlet private weak var moogLadderTitle: UILabel!
-
+    
+    @IBOutlet weak var lyricsView: LyricsView!
+    
     enum State {
         case readyToRecord
         case recording
@@ -48,7 +49,7 @@ class RecordViewController: UIViewController {
         super.init(coder: aDecoder)
 
         // Clean tempFiles !
-        AKAudioFile.cleanTempDirectory()
+        //AKAudioFile.cleanTempDirectory()
 
         // Session settings
         AKSettings.bufferLength = .medium
@@ -93,6 +94,34 @@ class RecordViewController: UIViewController {
         plot?.node = mic
         setupButtonNames()
         setupUIForRecording()
+        // Read the test LRC file
+        guard
+            let path = Bundle.main.path(forResource: "Santa Monica Dream", ofType: "lrc"),
+            let stream = InputStream(fileAtPath: path)
+            else {
+                return
+        }
+        
+        var data = Data.init()
+        
+        stream.open()
+        let bufferSize = 1024
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: bufferSize)
+        while (stream.hasBytesAvailable) {
+            let read = stream.read(buffer, maxLength: bufferSize)
+            data.append(buffer, count: read)
+        }
+        stream.close()
+        buffer.deallocate()
+        let lyrics = String(data: data, encoding: .utf8)
+        
+        // Initialize the SpotlightLyrics view
+        lyricsView.lyrics = lyrics
+        lyricsView.lyricFont = UIFont.systemFont(ofSize: 13)
+        lyricsView.lyricTextColor = UIColor.lightGray
+        lyricsView.lyricHighlightedFont = UIFont.systemFont(ofSize: 13)
+        lyricsView.lyricHighlightedTextColor = UIColor.black
+        
     }
 
     // CallBack triggered when playing has ended
@@ -103,7 +132,25 @@ class RecordViewController: UIViewController {
             self.setupUIForPlaying ()
         }
     }
-
+    private func lv() {
+        if (timer != nil) {
+            timer?.invalidate()
+            timer = nil
+        }
+        
+        currentTime = 0
+        lyricsView.scroll(toTime: currentTime, animated: true)
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (_) in
+            self.lyricsView.scroll(toTime: self.currentTime, animated: true)
+            self.currentTime += 0.5
+            if (self.currentTime >= self.totalDuration) {
+                //self.stop()
+            }
+            
+        })
+    }
+    
     @IBAction func mainButtonTouched(sender: UIButton) {
         switch state {
         case .readyToRecord :
@@ -118,6 +165,8 @@ class RecordViewController: UIViewController {
             do {
                 try recorder.record()
             } catch { AKLog("Errored recording.") }
+            lv()
+            
 
         case .recording :
             // Microphone monitoring is muted
@@ -159,7 +208,7 @@ class RecordViewController: UIViewController {
     func setupButtonNames() {
         resetButton.setTitle(Constants.empty, for: UIControl.State.disabled)
         mainButton.setTitle(Constants.empty, for: UIControl.State.disabled)
-        loopButton.setTitle(Constants.empty, for: UIControl.State.disabled)
+        
     }
 
     func setupUIForRecording () {
@@ -180,21 +229,10 @@ class RecordViewController: UIViewController {
         resetButton.isHidden = false
         resetButton.isEnabled = true
         setSliders(active: true)
-        moogLadder.cutoffFrequency = frequencySlider.range.upperBound
-        frequencySlider.value = moogLadder.cutoffFrequency
-        resonanceSlider.value = moogLadder.resonance
     }
 
     func setSliders(active: Bool) {
-        loopButton.isEnabled = active
-        moogLadderTitle.isEnabled = active
-        frequencySlider.callback = updateFrequency
-        frequencySlider.isHidden = !active
-        resonanceSlider.callback = updateResonance
-        resonanceSlider.isHidden = !active
-        frequencySlider.range = 10 ... 20_000
-        frequencySlider.taper = 3
-        moogLadderTitle.text = active ? "Moog Ladder Filter" : Constants.empty
+
     }
 
     @IBAction func loopButtonTouched(sender: UIButton) {
@@ -221,15 +259,11 @@ class RecordViewController: UIViewController {
     }
 
     func updateFrequency(value: Double) {
-        moogLadder.cutoffFrequency = value
-        frequencySlider.property = "Frequency"
-        frequencySlider.format = "%0.0f"
+        
     }
 
     func updateResonance(value: Double) {
-        moogLadder.resonance = value
-        resonanceSlider.property = "Resonance"
-        resonanceSlider.format = "%0.3f"
+
     }
 
 }

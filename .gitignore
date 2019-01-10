@@ -1,2 +1,2 @@
-AudioKit.framework
-AudioKitUI.framework
+phase1_module_audiokit/Pods/*
+singer/*

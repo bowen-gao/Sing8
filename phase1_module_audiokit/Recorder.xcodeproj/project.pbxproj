@@ -3,17 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D3F3B8B21E6F9AE0086ADAE /* AudioKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3F3B8921E6F9AE0086ADAE /* AudioKitUI.framework */; };
-		1D3F3B8C21E6F9AE0086ADAE /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3F3B8A21E6F9AE0086ADAE /* AudioKit.framework */; };
 		87F4621721E5C8A800DC66F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */; };
 		87F4621B21E5D31A00DC66F8 /* Soundtracks.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87F4621A21E5D31A00DC66F8 /* Soundtracks.xcassets */; };
 		87F4621D21E5D99600DC66F8 /* SoundtrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4621C21E5D99600DC66F8 /* SoundtrackCell.swift */; };
 		87F4621F21E5DC5200DC66F8 /* SoundtrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4621E21E5DC5200DC66F8 /* SoundtrackViewController.swift */; };
 		87F4622121E5DDB300DC66F8 /* Soundtrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4622021E5DDB300DC66F8 /* Soundtrack.swift */; };
+		C1C282CD21E7CB78005CED8E /* Santa Monica Dream.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C1C282CC21E7CB78005CED8E /* Santa Monica Dream.lrc */; };
 		C4486EF11D42AE4700FE135F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4486EE91D42AE4700FE135F /* AppDelegate.swift */; };
 		C4486EF21D42AE4700FE135F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4486EEA1D42AE4700FE135F /* Assets.xcassets */; };
 		C4486EF31D42AE4700FE135F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4486EEB1D42AE4700FE135F /* LaunchScreen.storyboard */; };
@@ -21,21 +20,35 @@
 		C4486EF61D42AE4700FE135F /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4486EF01D42AE4700FE135F /* RecordViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C157F20421E7C66600BA039E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		1D3F3B8921E6F9AE0086ADAE /* AudioKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKitUI.framework; path = Recorder/AudioKitUI.framework; sourceTree = "<group>"; };
-		1D3F3B8A21E6F9AE0086ADAE /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioKit.framework; path = Recorder/AudioKit.framework; sourceTree = "<group>"; };
+		1CC35990F1C80A84B86B14F0 /* Pods-Recorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recorder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recorder/Pods-Recorder.debug.xcconfig"; sourceTree = "<group>"; };
 		87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87F4621A21E5D31A00DC66F8 /* Soundtracks.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Soundtracks.xcassets; sourceTree = "<group>"; };
 		87F4621C21E5D99600DC66F8 /* SoundtrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundtrackCell.swift; sourceTree = "<group>"; };
 		87F4621E21E5DC5200DC66F8 /* SoundtrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundtrackViewController.swift; sourceTree = "<group>"; };
 		87F4622021E5DDB300DC66F8 /* Soundtrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soundtrack.swift; sourceTree = "<group>"; };
 		8DAD9EDD1D3E4A3400CD3B0A /* Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1C282CC21E7CB78005CED8E /* Santa Monica Dream.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Santa Monica Dream.lrc"; sourceTree = "<group>"; };
 		C4486EE91D42AE4700FE135F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4486EEA1D42AE4700FE135F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4486EEC1D42AE4700FE135F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4486EEE1D42AE4700FE135F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4486EEF1D42AE4700FE135F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4486EF01D42AE4700FE135F /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		FEDFFB435031AD6DA1A7C066 /* Pods-Recorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recorder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recorder/Pods-Recorder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,21 +56,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D3F3B8C21E6F9AE0086ADAE /* AudioKit.framework in Frameworks */,
-				1D3F3B8B21E6F9AE0086ADAE /* AudioKitUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7814CAEB1D463D04004EA355 /* Frameworks */ = {
+		3F7C208697538A5E92C8FA70 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1D3F3B8A21E6F9AE0086ADAE /* AudioKit.framework */,
-				1D3F3B8921E6F9AE0086ADAE /* AudioKitUI.framework */,
+				1CC35990F1C80A84B86B14F0 /* Pods-Recorder.debug.xcconfig */,
+				FEDFFB435031AD6DA1A7C066 /* Pods-Recorder.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		7814CAEC1D463D0E004EA355 /* Supporting files */ = {
@@ -75,8 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				C4486EE81D42AE4700FE135F /* Recorder */,
-				7814CAEB1D463D04004EA355 /* Frameworks */,
 				8DAD9EDE1D3E4A3400CD3B0A /* Products */,
+				3F7C208697538A5E92C8FA70 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +102,7 @@
 		C4486EE81D42AE4700FE135F /* Recorder */ = {
 			isa = PBXGroup;
 			children = (
+				C1C282CC21E7CB78005CED8E /* Santa Monica Dream.lrc */,
 				87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */,
 				C4486EED1D42AE4700FE135F /* Main.storyboard */,
 				C4486EF01D42AE4700FE135F /* RecordViewController.swift */,
@@ -110,9 +122,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8DAD9F051D3E4A3400CD3B0A /* Build configuration list for PBXNativeTarget "Recorder" */;
 			buildPhases = (
+				1DDFD699392CA48A3136701E /* [CP] Check Pods Manifest.lock */,
 				8DAD9ED91D3E4A3400CD3B0A /* Sources */,
 				8DAD9EDA1D3E4A3400CD3B0A /* Frameworks */,
 				8DAD9EDB1D3E4A3400CD3B0A /* Resources */,
+				C157F20421E7C66600BA039E /* Embed Frameworks */,
+				077A95E5D047B872757186CF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,7 +156,7 @@
 				};
 			};
 			buildConfigurationList = 8DAD9ED81D3E4A3400CD3B0A /* Build configuration list for PBXProject "Recorder" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -167,11 +182,59 @@
 				87F4621721E5C8A800DC66F8 /* LaunchScreen.storyboard in Resources */,
 				87F4621B21E5D31A00DC66F8 /* Soundtracks.xcassets in Resources */,
 				C4486EF41D42AE4700FE135F /* Main.storyboard in Resources */,
+				C1C282CD21E7CB78005CED8E /* Santa Monica Dream.lrc in Resources */,
 				C4486EF31D42AE4700FE135F /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		077A95E5D047B872757186CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Recorder/Pods-Recorder-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SpotlightLyrics/SpotlightLyrics.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpotlightLyrics.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Recorder/Pods-Recorder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1DDFD699392CA48A3136701E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Recorder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8DAD9ED91D3E4A3400CD3B0A /* Sources */ = {
@@ -311,7 +374,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
@@ -320,6 +384,7 @@
 		};
 		8DAD9F061D3E4A3400CD3B0A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CC35990F1C80A84B86B14F0 /* Pods-Recorder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -330,8 +395,11 @@
 					"$(PROJECT_DIR)/Recorder",
 				);
 				INFOPLIST_FILE = Recorder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.recorder;
 				PRODUCT_NAME = Recorder;
@@ -341,6 +409,7 @@
 		};
 		8DAD9F071D3E4A3400CD3B0A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEDFFB435031AD6DA1A7C066 /* Pods-Recorder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -351,8 +420,11 @@
 					"$(PROJECT_DIR)/Recorder",
 				);
 				INFOPLIST_FILE = Recorder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.recorder;
 				PRODUCT_NAME = Recorder;
