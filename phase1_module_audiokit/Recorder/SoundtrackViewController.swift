@@ -24,7 +24,12 @@ class SoundtrackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.title = "Soundtrack List"
         soundtrackList = initSoundtrackList();
         soundtrackTableView.delegate = self
         soundtrackTableView.dataSource = self
@@ -40,10 +45,23 @@ class SoundtrackViewController: UIViewController {
         // Pass the selected object to the new view controller.
     } 
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "soundtrackToRecord"{
+            let nextView = segue.destination as! RecordViewController
+            nextView.soundtrack = sender as? Soundtrack
+             
+        }
+    }
+    
+    //@IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        
+    //}
 
 }
 
 extension SoundtrackViewController: UITableViewDataSource, UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return soundtrackList.count
     }
@@ -52,6 +70,7 @@ extension SoundtrackViewController: UITableViewDataSource, UITableViewDelegate{
         let temp = soundtrackList[indexPath.row]
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "SoundtrackCell") as! SoundtrackCell
         tableCell.setSoundtrack(Soundtrack: temp)
+        tableCell.selectionStyle = .none
         return tableCell
     }
     
@@ -64,6 +83,11 @@ extension SoundtrackViewController: UITableViewDataSource, UITableViewDelegate{
         }
         history.backgroundColor = .lightGray
         return [history]
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        let chosen = soundtrackList[indexPath.row]
+        performSegue(withIdentifier: "soundtrackToRecord", sender: chosen)
     }
     
 }

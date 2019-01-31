@@ -13,6 +13,7 @@ import AudioKit
 import AudioKitUI
 import UIKit
 import SpotlightLyrics
+import AVFoundation
 
 class RecordViewController: UIViewController {
 
@@ -35,7 +36,15 @@ class RecordViewController: UIViewController {
     @IBOutlet private weak var resetButton: UIButton!
     @IBOutlet private weak var mainButton: UIButton!
     
+    @IBOutlet weak var saveButton: UIButton!
+    
     @IBOutlet weak var lyricsView: LyricsView!
+    
+    var soundtrack: Soundtrack?
+    
+    var audioPlayer = AVAudioPlayer()
+    
+    var avPlayer: AVPlayer!
     
     enum State {
         case readyToRecord
@@ -91,12 +100,13 @@ class RecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        //print(soundtrack?.title)
         plot?.node = mic
         setupButtonNames()
         setupUIForRecording()
         // Read the test LRC file
         guard
-            let path = Bundle.main.path(forResource: "Santa Monica Dream", ofType: "lrc"),
+            let path = Bundle.main.path(forResource: soundtrack?.title, ofType: "lrc"),
             let stream = InputStream(fileAtPath: path)
             else {
                 return
@@ -122,6 +132,26 @@ class RecordViewController: UIViewController {
         lyricsView.lyricHighlightedFont = UIFont.systemFont(ofSize: 13)
         lyricsView.lyricHighlightedTextColor = UIColor.black
         
+        
+        //Load the music once the view is loaded
+        /*
+        do{
+            //
+            
+             //try AudioKit.start()
+             //let audioFile = try AKAudioFile(forReading: URL(fileURLWithPath: Bundle.main.path(forResource: "XiTieJie", ofType: "mp3")!))
+             //let player = try AKAudioPlayer(file: audioFile)
+             //player.play()
+            
+            
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "XiTieJie", ofType: "mp3")!))
+            audioPlayer.prepareToPlay();
+        }
+        catch let exception{
+            print(exception)
+        }*/
+        //print(soundtrack?.title)
+
     }
 
     // CallBack triggered when playing has ended
@@ -151,10 +181,28 @@ class RecordViewController: UIViewController {
         })
     }
     
+    private func bgmPlay(){
+        avPlayer = AVPlayer(url: URL.init(fileURLWithPath: Bundle.main.path(forResource: soundtrack?.title, ofType: "mp3")!))
+        avPlayer.play();
+        print("playing music!")
+    }
+    
+    private func bgmStop(){
+        avPlayer.pause()
+        avPlayer.seek(to: .zero)
+        // try to stop rolling after stopping recording
+        //lyricsView.timer.pause()
+        //lyricsView.timer.seek(toTime: 0)
+        print("Stop playing music!")
+    }
+    
     @IBAction func mainButtonTouched(sender: UIButton) {
         switch state {
         case .readyToRecord :
             infoLabel.text = "Recording"
+        
+            
+            
             mainButton.setTitle("Stop", for: .normal)
             state = .recording
             // microphone will be monitored while recording
@@ -165,6 +213,7 @@ class RecordViewController: UIViewController {
             do {
                 try recorder.record()
             } catch { AKLog("Errored recording.") }
+            bgmPlay()
             lv()
             
 
@@ -176,6 +225,7 @@ class RecordViewController: UIViewController {
 
             if let _ = player.audioFile?.duration {
                 recorder.stop()
+                bgmStop()
                 tape.exportAsynchronously(name: "TempTestFile.m4a",
                                           baseDir: .documents,
                                           exportFormat: .m4a) {_, exportError in
@@ -208,6 +258,7 @@ class RecordViewController: UIViewController {
     func setupButtonNames() {
         resetButton.setTitle(Constants.empty, for: UIControl.State.disabled)
         mainButton.setTitle(Constants.empty, for: UIControl.State.disabled)
+        saveButton.setTitle(Constants.empty, for: UIControl.State.disabled)
         
     }
 
@@ -216,7 +267,9 @@ class RecordViewController: UIViewController {
         infoLabel.text = "Ready to record"
         mainButton.setTitle("Record", for: .normal)
         resetButton.isEnabled = false
+        saveButton.isEnabled = false
         resetButton.isHidden = true
+        saveButton.isHidden = true
         micBooster.gain = 0
         setSliders(active: false)
     }
@@ -227,7 +280,9 @@ class RecordViewController: UIViewController {
         mainButton.setTitle("Play", for: .normal)
         state = .readyToPlay
         resetButton.isHidden = false
+        saveButton.isHidden = false
         resetButton.isEnabled = true
+        saveButton.isEnabled = true
         setSliders(active: true)
     }
 
@@ -235,6 +290,7 @@ class RecordViewController: UIViewController {
 
     }
 
+    /*
     @IBAction func loopButtonTouched(sender: UIButton) {
 
         if player.isLooping {
@@ -247,6 +303,7 @@ class RecordViewController: UIViewController {
         }
 
     }
+ */
     @IBAction func resetButtonTouched(sender: UIButton) {
         player.stop()
         plot?.node = mic
@@ -257,7 +314,99 @@ class RecordViewController: UIViewController {
         //try? player.replaceFile((recorder.audioFile)!)
         setupUIForRecording()
     }
+    
+    
+    @IBAction func saveButtonTouched(_ sender: UIButton) {
+        print("Saving Record")
+        //player.load(audioFile: tape)
+        print(tape)
+        //exportAsset(tape, fileName: "test-saving")
+        //player.play()
+        /*tape.exportAsynchronously(name: "TestFile.caf",
+                                  baseDir: .documents,
+                                  exportFormat: .caf) {_, exportError in
+                                    if let error = exportError {
+                                        print("Failed to save file")
+                                    } else {
+                                        print("Saving File Succeeded")
+                                    }
+        }*/
+    }
+    
+    /*
+    func exportAsset(_ asset: AVAsset, fileName: String) {
+        print("\(#function)")
+        
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let trimmedSoundFileURL = documentsDirectory.appendingPathComponent(fileName)
+        print("saving to \(trimmedSoundFileURL.absoluteString)")
+        
+        
+        
+        if FileManager.default.fileExists(atPath: trimmedSoundFileURL.absoluteString) {
+            print("sound exists, removing \(trimmedSoundFileURL.absoluteString)")
+            do {
+                if try trimmedSoundFileURL.checkResourceIsReachable() {
+                    print("is reachable")
+                }
+                
+                try FileManager.default.removeItem(atPath: trimmedSoundFileURL.absoluteString)
+            } catch {
+                print("could not remove \(trimmedSoundFileURL)")
+                print(error.localizedDescription)
+            }
+            
+        }
+        
+        print("creating export session for \(asset)")
+        
+        if let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) {
+            exporter.outputFileType = AVFileType.m4a
+            exporter.outputURL = trimmedSoundFileURL
+            
+            // e.g. the first 5 seconds
+            let startTime = CMTimeMake(0, 1)
+            let stopTime = CMTimeMake(5, 1)
+            exporter.timeRange = CMTimeRangeFromTimeToTime(startTime, stopTime)
+            
+            //            // set up the audio mix
+            //            let tracks = asset.tracksWithMediaType(AVMediaTypeAudio)
+            //            if tracks.count == 0 {
+            //                return
+            //            }
+            //            let track = tracks[0]
+            //            let exportAudioMix = AVMutableAudioMix()
+            //            let exportAudioMixInputParameters =
+            //            AVMutableAudioMixInputParameters(track: track)
+            //            exportAudioMixInputParameters.setVolume(1.0, atTime: CMTimeMake(0, 1))
+            //            exportAudioMix.inputParameters = [exportAudioMixInputParameters]
+            //            // exporter.audioMix = exportAudioMix
+            
+            // do it
+            exporter.exportAsynchronously(completionHandler: {
+                print("export complete \(exporter.status)")
+                
+                switch exporter.status {
+                case  AVAssetExportSession.Status.failed:
+                    
+                    if let e = exporter.error {
+                        print("export failed \(e)")
+                    }
+                    
+                case AVAssetExportSession.Status.cancelled:
+                    print("export cancelled \(String(describing: exporter.error))")
+                default:
+                    print("export complete")
+                }
+            })
+        } else {
+            print("cannot create AVAssetExportSession for asset \(asset)")
+        }
+        
+    }
+    */
 
+    
     func updateFrequency(value: Double) {
         
     }
