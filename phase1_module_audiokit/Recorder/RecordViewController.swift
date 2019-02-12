@@ -181,6 +181,22 @@ class RecordViewController: UIViewController {
         })
     }
     
+    private func lv_reset() {
+        if (timer != nil) {
+            timer?.invalidate()
+            timer = nil
+        }
+        
+        currentTime = 0
+        lyricsView.scroll(toTime: currentTime, animated: false)
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (_) in
+            self.lyricsView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .middle, animated: true)
+
+
+        })
+    }
+    
     private func bgmPlay(){
         avPlayer = AVPlayer(url: URL.init(fileURLWithPath: Bundle.main.path(forResource: soundtrack?.title, ofType: "mp3")!))
         avPlayer.play();
@@ -272,6 +288,7 @@ class RecordViewController: UIViewController {
         saveButton.isHidden = true
         micBooster.gain = 0
         setSliders(active: false)
+//        lyricsView.scroll(toTime: 0, animated: true)
     }
 
     func setupUIForPlaying () {
@@ -307,12 +324,16 @@ class RecordViewController: UIViewController {
     @IBAction func resetButtonTouched(sender: UIButton) {
         player.stop()
         plot?.node = mic
+        
         do {
             try recorder.reset()
+            
         } catch { AKLog("Errored resetting.") }
 
         //try? player.replaceFile((recorder.audioFile)!)
         setupUIForRecording()
+        //lv_reset()
+        lv_reset()
     }
     
     
