@@ -42,6 +42,10 @@ class RecordViewController: UIViewController {
     
     var soundtrack: Soundtrack?
     
+    var totalScore = 0
+    var volumeScore = 0
+    var pitchScore = 0
+    
     var audioPlayer = AVAudioPlayer()
     
     var avPlayer: AVPlayer!
@@ -435,5 +439,27 @@ class RecordViewController: UIViewController {
     func updateResonance(value: Double) {
 
     }
-
+    
+    
+    
+    @IBAction func showResult(_ sender: Any) {
+        // Hardcoded -> testing purposes
+        self.totalScore = 10
+        self.volumeScore = 20
+        self.pitchScore = 30
+        
+        // Call to the the analyzer
+        
+        // Jump to the result page
+        performSegue(withIdentifier: "redirectResultPage", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var viewController = segue.destination as! ResultViewController
+        viewController.musicTitle = soundtrack!.title
+        viewController.totalScore = self.totalScore
+        viewController.pitchScore = self.pitchScore
+        viewController.volumeScore = self.volumeScore
+    }
+    
 }
