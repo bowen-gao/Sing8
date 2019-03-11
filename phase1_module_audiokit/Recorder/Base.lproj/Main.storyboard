@@ -161,6 +161,9 @@
                                 <rect key="frame" x="187" y="723" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Share"/>
+                                <connections>
+                                    <action selector="SharedPressed:" destination="PZm-73-ovY" eventType="touchUpInside" id="eHz-jW-gCf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZg-GF-GeI">
                                 <rect key="frame" x="274" y="723" width="102" height="30"/>

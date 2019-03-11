@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CE4663D22371EE700DD6BBD /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4663C22371EE700DD6BBD /* ResultViewController.swift */; };
 		40E337D8517C11634195D15E /* Pods_Recorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F215C0F50AABB75565E713E /* Pods_Recorder.framework */; };
 		87F4621721E5C8A800DC66F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */; };
 		87F4621B21E5D31A00DC66F8 /* Soundtracks.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87F4621A21E5D31A00DC66F8 /* Soundtracks.xcassets */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		1CC35990F1C80A84B86B14F0 /* Pods-Recorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recorder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recorder/Pods-Recorder.debug.xcconfig"; sourceTree = "<group>"; };
+		1CE4663C22371EE700DD6BBD /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		5F215C0F50AABB75565E713E /* Pods_Recorder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recorder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87F4621A21E5D31A00DC66F8 /* Soundtracks.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Soundtracks.xcassets; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		C4486EE81D42AE4700FE135F /* Recorder */ = {
 			isa = PBXGroup;
 			children = (
+				C1E360062235C7E900A0D7E6 /* ResultViewController.swift */,
 				C1E35FFD2230CFE400A0D7E6 /* soundtrack */,
 				C1C282CC21E7CB78005CED8E /* Santa Monica Dream.lrc */,
 				87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */,
@@ -145,7 +148,7 @@
 				87F4621C21E5D99600DC66F8 /* SoundtrackCell.swift */,
 				87F4621E21E5DC5200DC66F8 /* SoundtrackViewController.swift */,
 				87F4622021E5DDB300DC66F8 /* Soundtrack.swift */,
-				C1E360062235C7E900A0D7E6 /* ResultViewController.swift */,
+				1CE4663C22371EE700DD6BBD /* ResultViewController.swift */,
 			);
 			path = Recorder;
 			sourceTree = "<group>";
@@ -285,7 +288,15 @@
 				C4486EF61D42AE4700FE135F /* RecordViewController.swift in Sources */,
 				87F4621F21E5DC5200DC66F8 /* SoundtrackViewController.swift in Sources */,
 				87F4621D21E5D99600DC66F8 /* SoundtrackCell.swift in Sources */,
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				C1E360072235C7E900A0D7E6 /* ResultViewController.swift in Sources */,
+=======
+				1CE4663D22371EE700DD6BBD /* ResultViewController.swift in Sources */,
+>>>>>>> Stashed changes
+=======
+				1CE4663D22371EE700DD6BBD /* ResultViewController.swift in Sources */,
+>>>>>>> Stashed changes
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +452,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.recorder.yht;
+				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.recorder.XX;
 				PRODUCT_NAME = Recorder;
 				SWIFT_VERSION = 4.2;
 			};
@@ -466,7 +477,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.recorder.yht;
+				PRODUCT_BUNDLE_IDENTIFIER = io.audiokit.recorder.XX;
 				PRODUCT_NAME = Recorder;
 				SWIFT_VERSION = 4.2;
 			};

@@ -2,7 +2,15 @@
 //  ResultViewController.swift
 //  Recorder
 //
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 //  Created by Zi Wang on 2019/3/9.
+=======
+//  Created by Haotian Yin on 2019-03-11.
+>>>>>>> Stashed changes
+=======
+//  Created by Haotian Yin on 2019-03-11.
+>>>>>>> Stashed changes
 //  Copyright © 2019 Laurent Veliscek. All rights reserved.
 //
 
@@ -10,6 +18,8 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @IBOutlet weak var totalScoreLabel: UILabel!
     @IBOutlet weak var songTitleLabel: UILabel!
     @IBOutlet weak var pitchScoreTitle: UILabel!
@@ -28,6 +38,17 @@ class ResultViewController: UIViewController {
         totalScoreLabel.text = String(totalScore)
         pitchScoreTitle.text = String(pitchScore)+"%"
         volumeScoreTitle.text = String(volumeScore)+"%"
+=======
+=======
+>>>>>>> Stashed changes
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     }
     
 
@@ -40,12 +61,27 @@ class ResultViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
-    @IBAction func SharedPressed(_ sender: Any) {
+=======
+=======
+>>>>>>> Stashed changes
+    
+    
+    @IBAction func sharePressed(_ sender: Any) {
+//        print("share button pressed")
+//        let activityVC = UIActivityViewController(activityItems: ["Hello, www.google.com"], applicationActivities: nil)
+//        activityVC.popoverPresentationController?.sourceView = self.view
+//
+//        self.present(activityVC, animated: true, completion: nil)
+        
+        
         
         //Set the default sharing message.
 //        let message = "Hello!"
-//        let link = NSURL(string: "http://google.com/")
+//        let link = NSURL(string: "www.google.com")
+        
         
         // Screenshot:
         UIGraphicsBeginImageContextWithOptions(self.view.frame.size, true, 0.0)
@@ -54,10 +90,14 @@ class ResultViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         //Set the link, message, image to share.
-
-        let objectsToShare = [img] as [Any]
-        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-        activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
-        self.present(activityVC, animated: true, completion: nil)
+            let objectsToShare = [img]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare as [Any], applicationActivities: nil)
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            self.present(activityVC, animated: true, completion: nil)
     }
+    
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 }
