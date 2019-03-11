@@ -29,6 +29,7 @@ class RecordViewController: UIViewController {
 
     var state = State.readyToRecord
     private var timer: Timer? = nil
+    private var ftimer: Timer? = nil
     private var currentTime: TimeInterval = 0
     private let totalDuration: TimeInterval = 332
     @IBOutlet private var plot: AKNodeOutputPlot?
@@ -49,7 +50,8 @@ class RecordViewController: UIViewController {
     let noteFrequencies = [16.35, 17.32, 18.35, 19.45, 20.6, 21.83, 23.12, 24.5, 25.96, 27.5, 29.14, 30.87]
     let noteNamesWithSharps = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"]
     let noteNamesWithFlats = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"]
-    
+    let micarray:[Int]=[]
+    let playerarray:[Int]=[]
     var audioPlayer = AVAudioPlayer()
     
     var bgm_player: AKPlayer!
@@ -262,6 +264,10 @@ class RecordViewController: UIViewController {
         
     }
     @IBAction func mainButtonTouched(sender: UIButton) {
+        if (ftimer != nil) {
+            ftimer?.invalidate()
+            ftimer = nil
+        }
         switch state {
         case .readyToRecord :
             infoLabel.text = "Recording"
@@ -280,7 +286,8 @@ class RecordViewController: UIViewController {
             } catch { AKLog("Errored recording.") }
             bgmPlay()
             lv()
-            Timer.scheduledTimer(timeInterval: 0.1,
+            
+            ftimer=Timer.scheduledTimer(timeInterval: 0.1,
                                  target: self,
                                  selector: #selector(RecordViewController.updateF),
                                  userInfo: nil,
