@@ -226,7 +226,14 @@ class RecordViewController: UIViewController {
         //lyricsView.timer.seek(toTime: 0)
         print("Stop playing music!")
     }
-    
+    @objc func updateF() {
+        //infoLabel.text = String(format: "%0.1f", tracker.frequency)
+        //print(tracker.amplitude)
+        if(tracker_mic.amplitude > 0.1){
+            //print(tracker_mic.frequency)
+            print(tracker_player.frequency)
+        }
+    }
     @IBAction func mainButtonTouched(sender: UIButton) {
         switch state {
         case .readyToRecord :
@@ -246,7 +253,11 @@ class RecordViewController: UIViewController {
             } catch { AKLog("Errored recording.") }
             bgmPlay()
             lv()
-            
+            Timer.scheduledTimer(timeInterval: 0.1,
+                                 target: self,
+                                 selector: #selector(RecordViewController.updateF),
+                                 userInfo: nil,
+                                 repeats: true)
 
         case .recording :
             // Microphone monitoring is muted
