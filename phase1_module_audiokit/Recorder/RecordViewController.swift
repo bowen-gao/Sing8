@@ -48,6 +48,11 @@ class RecordViewController: UIViewController {
     
     var audioPlayer = AVAudioPlayer()
     
+    var bgm_player: AKPlayer!
+    
+    var tracker_mic: AKFrequencyTracker!
+    var tracker_player: AKFrequencyTracker!
+    
     var avPlayer: AVPlayer!
     
     enum State {
@@ -88,10 +93,17 @@ class RecordViewController: UIViewController {
         }
         player.isLooping = true
         player.completionHandler = playingEnded
-
+        do{
+            let file = try AKAudioFile(forReading: URL.init(fileURLWithPath: Bundle.main.path(forResource: soundtrack?.title, ofType: "mp3")!))
+            bgm_player = AKPlayer(audioFile: file)
+        }
+        catch{
+            AKLog("bgm player error")
+        }
         moogLadder = AKMoogLadder(player)
-
-        mainMixer = AKMixer(moogLadder, micBooster)
+        tracker_mic = AKFrequencyTracker(mic)
+        tracker_player = AKFrequencyTracker(bgm_player)
+        mainMixer = AKMixer(moogLadder, micBooster, tracker_mic, tracker_player)
 
         AudioKit.output = mainMixer
         do {
@@ -202,14 +214,13 @@ class RecordViewController: UIViewController {
     }
     
     private func bgmPlay(){
-        avPlayer = AVPlayer(url: URL.init(fileURLWithPath: Bundle.main.path(forResource: soundtrack?.title, ofType: "mp3")!))
-        avPlayer.play();
+        bgm_player.play();
         print("playing music!")
     }
     
     private func bgmStop(){
-        avPlayer.pause()
-        avPlayer.seek(to: .zero)
+        bgm_player.pause()
+        //bgm_player.seek(to: .zero)
         // try to stop rolling after stopping recording
         //lyricsView.timer.pause()
         //lyricsView.timer.seek(toTime: 0)
