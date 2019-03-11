@@ -46,6 +46,10 @@ class RecordViewController: UIViewController {
     var volumeScore = 0
     var pitchScore = 0
     
+    let noteFrequencies = [16.35, 17.32, 18.35, 19.45, 20.6, 21.83, 23.12, 24.5, 25.96, 27.5, 29.14, 30.87]
+    let noteNamesWithSharps = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"]
+    let noteNamesWithFlats = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"]
+    
     var audioPlayer = AVAudioPlayer()
     
     var bgm_player: AKPlayer!
@@ -104,7 +108,6 @@ class RecordViewController: UIViewController {
         tracker_mic = AKFrequencyTracker(mic)
         tracker_player = AKFrequencyTracker(bgm_player)
         mainMixer = AKMixer(moogLadder, micBooster, tracker_mic, tracker_player)
-
         AudioKit.output = mainMixer
         do {
             try AudioKit.start()
@@ -233,6 +236,30 @@ class RecordViewController: UIViewController {
             //print(tracker_mic.frequency)
             print(tracker_player.frequency)
         }
+        if tracker_player.amplitude > 0.1 {
+            var frequency = Float(tracker_player.frequency)
+            while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
+                frequency /= 2.0
+            }
+            while frequency < Float(noteFrequencies[0]) {
+                frequency *= 2.0
+            }
+            
+            var minDistance: Float = 10_000.0
+            var index = 0
+            
+            for i in 0..<noteFrequencies.count {
+                let distance = fabsf(Float(noteFrequencies[i]) - frequency)
+                if distance < minDistance {
+                    index = i
+                    minDistance = distance
+                }
+            }
+            let octave = Int(log2f(Float(tracker_player.frequency) / frequency))
+            print("\(noteNamesWithSharps[index])\(octave)")
+            //noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
+        }
+        
     }
     @IBAction func mainButtonTouched(sender: UIButton) {
         switch state {
