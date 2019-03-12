@@ -44,8 +44,9 @@ class ResultViewController: UIViewController {
     @IBAction func SharedPressed(_ sender: Any) {
         
         //Set the default sharing message.
+        
 //        let message = "Hello!"
-//        let link = NSURL(string: "http://google.com/")
+//        let link = NSURL(string: "http://test.com/")
         
         // Screenshot:
         UIGraphicsBeginImageContextWithOptions(self.view.frame.size, true, 0.0)
