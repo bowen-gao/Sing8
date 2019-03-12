@@ -55,8 +55,8 @@ class RecordViewController: UIViewController {
     let noteFrequencies = [16.35, 17.32, 18.35, 19.45, 20.6, 21.83, 23.12, 24.5, 25.96, 27.5, 29.14, 30.87]
     let noteNamesWithSharps = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"]
     let noteNamesWithFlats = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"]
-    let micarray:[Int]=[]
-    let playerarray:[Int]=[]
+    var micarray:[Float]=[]
+    var playerarray:[Float]=[]
     var audioPlayer = AVAudioPlayer()
     
     var bgm_player: AKPlayer!
@@ -243,8 +243,34 @@ class RecordViewController: UIViewController {
         //infoLabel.text = String(format: "%0.1f", tracker.frequency)
         //print(tracker.amplitude)
         if(tracker_mic.amplitude > 0.1){
-            //print(tracker_mic.frequency)
-            print(tracker_player.frequency)
+            var f=Float(tracker_mic.frequency)
+            micarray.append(f)
+        }
+        if(tracker_player.amplitude > 0.1){
+            var f=Float(tracker_player.frequency)
+            playerarray.append(f)
+        }
+        if micarray.count == 30 {
+            var n=micarray.count
+            var m=playerarray.count
+            var dtw = Array(repeating: Array(repeating: 0.0, count: m+1), count: n+1)
+            for i in 1...n {
+                dtw[i][0] = Double.infinity
+            }
+            for i in 1...m {
+                dtw[0][i] = Double.infinity
+            }
+            dtw[0][0] = 0
+            for i in 1...n {
+                for j in 1...m {
+                    var cost = abs(micarray[i-1] - playerarray[j-1])
+                    dtw[i][j] = cost + min(dtw[i-1][j], dtw[i][j-1], dtw[i-1][j-1])    // match
+                }
+            }
+            var sum = playerarray.reduce(0, +)
+            micarray = []
+            playerarray = []
+            self.pitchScore = Int(100*(1 - dtw[n][m] / sum))
         }
         if tracker_player.amplitude > 0.1 {
             var frequency = Float(tracker_player.frequency)
@@ -266,9 +292,17 @@ class RecordViewController: UIViewController {
                 }
             }
             let octave = Int(log2f(Float(tracker_player.frequency) / frequency))
-            print("\(noteNamesWithSharps[index])\(octave)")
+
+            //print("\(noteNamesWithSharps[index])\(octave)")
             correctKeyLabel.text = "\(noteNamesWithSharps[index])\(octave)"
+
             //noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
+        }
+        if tracker_mic.amplitude < tracker_player.amplitude {
+            self.volumeScore = self.volumeScore-1
+        }
+        else if tracker_mic.amplitude > tracker_mic.amplitude*2 {
+            self.volumeScore = self.volumeScore-1
         }
         
     }
@@ -295,7 +329,7 @@ class RecordViewController: UIViewController {
             } catch { AKLog("Errored recording.") }
             bgmPlay()
             lv()
-            
+            self.volumeScore = 100
             ftimer=Timer.scheduledTimer(timeInterval: 0.1,
                                  target: self,
                                  selector: #selector(RecordViewController.updateF),
@@ -393,7 +427,6 @@ class RecordViewController: UIViewController {
     @IBAction func resetButtonTouched(sender: UIButton) {
         player.stop()
         plot?.node = mic
-        
         do {
             try recorder.reset()
             
@@ -510,12 +543,15 @@ class RecordViewController: UIViewController {
     @IBAction func showResult(_ sender: Any) {
         // Hardcoded -> testing purposes
         self.totalScore = 10
-        self.volumeScore = 20
-        self.pitchScore = 30
+        //self.volumeScore = 20
+        //self.pitchScore = 30
         self.comment = "Excellent Voice!"
         
         // Call to the the analyzer
-        
+        var comment:String
+        if self.volumeScore<50 && self.pitchScore>80 {
+            comment = "Good Job, your pitch is pretty accurate! However, you should sing louder"
+        }
         // Jump to the result page
         performSegue(withIdentifier: "redirectResultPage", sender: self)
     }
