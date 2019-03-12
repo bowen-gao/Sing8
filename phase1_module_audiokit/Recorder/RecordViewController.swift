@@ -271,6 +271,10 @@ class RecordViewController: UIViewController {
             micarray = []
             playerarray = []
             self.pitchScore = Int(100*(1 - dtw[n][m] / sum))
+            if self.pitchScore<0 {
+                self.pitchScore = 0
+            }
+            currentScoreLabel.text = String(self.pitchScore)
         }
         if tracker_player.amplitude > 0.1 {
             var frequency = Float(tracker_player.frequency)
@@ -298,11 +302,40 @@ class RecordViewController: UIViewController {
 
             //noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
         }
+        if tracker_mic.amplitude > 0.1 {
+            var frequency = Float(tracker_mic.frequency)
+            while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
+                frequency /= 2.0
+            }
+            while frequency < Float(noteFrequencies[0]) {
+                frequency *= 2.0
+            }
+            
+            var minDistance: Float = 10_000.0
+            var index = 0
+            
+            for i in 0..<noteFrequencies.count {
+                let distance = fabsf(Float(noteFrequencies[i]) - frequency)
+                if distance < minDistance {
+                    index = i
+                    minDistance = distance
+                }
+            }
+            let octave = Int(log2f(Float(tracker_mic.frequency) / frequency))
+            
+            //print("\(noteNamesWithSharps[index])\(octave)")
+            userKeyLabel.text = "\(noteNamesWithSharps[index])\(octave)"
+            
+            //noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
+        }
         if tracker_mic.amplitude < tracker_player.amplitude {
             self.volumeScore = self.volumeScore-1
         }
         else if tracker_mic.amplitude > tracker_mic.amplitude*2 {
             self.volumeScore = self.volumeScore-1
+        }
+        if self.volumeScore<0 {
+            self.volumeScore = 0
         }
         
     }
@@ -469,15 +502,14 @@ class RecordViewController: UIViewController {
     
     @IBAction func showResult(_ sender: Any) {
         // Hardcoded -> testing purposes
-        self.totalScore = 10
+        self.totalScore = Int(0.8*self.pitchScore+0.2*self.volumeScore)
         //self.volumeScore = 20
         //self.pitchScore = 30
         self.comment = "Excellent Voice!"
         
         // Call to the the analyzer
-        var comment:String
         if self.volumeScore<50 && self.pitchScore>80 {
-            comment = "Good Job, your pitch is pretty accurate! However, you should sing louder"
+            self.comment = "Good Job, your pitch is pretty accurate! However, you should sing louder"
         }
         // Jump to the result page
         performSegue(withIdentifier: "redirectResultPage", sender: self)
