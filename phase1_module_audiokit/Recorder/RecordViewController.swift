@@ -345,9 +345,16 @@ class RecordViewController: UIViewController {
             if let _ = player.audioFile?.duration {
                 recorder.stop()
                 bgmStop()
-                tape.exportAsynchronously(name: "TempTestFile.m4a",
+                let currentTime = NSDate()
+                let formatter = DateFormatter()
+                formatter.timeZone = TimeZone.current
+                formatter.dateFormat = "yyyy-MM-dd-HH-mm"
+                let timeStamp = formatter.string(from: currentTime as Date)
+                let fileName = timeStamp+"+"+(soundtrack?.title)!+"+"+String(totalScore)
+                // Filename Format: timeStamp+musicName+score.wav
+                tape.exportAsynchronously(name: fileName+".wav",
                                           baseDir: .documents,
-                                          exportFormat: .m4a) {_, exportError in
+                                          exportFormat: .wav) {_, exportError in
                     if let error = exportError {
                         AKLog("Export Failed \(error)")
                     } else {
@@ -445,89 +452,9 @@ class RecordViewController: UIViewController {
         print(tape)
         //exportAsset(tape, fileName: "test-saving")
         //player.play()
-        /*tape.exportAsynchronously(name: "TestFile.caf",
-                                  baseDir: .documents,
-                                  exportFormat: .caf) {_, exportError in
-                                    if let error = exportError {
-                                        print("Failed to save file")
-                                    } else {
-                                        print("Saving File Succeeded")
-                                    }
-        }*/
+        
     }
     
-    /*
-    func exportAsset(_ asset: AVAsset, fileName: String) {
-        print("\(#function)")
-        
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let trimmedSoundFileURL = documentsDirectory.appendingPathComponent(fileName)
-        print("saving to \(trimmedSoundFileURL.absoluteString)")
-        
-        
-        
-        if FileManager.default.fileExists(atPath: trimmedSoundFileURL.absoluteString) {
-            print("sound exists, removing \(trimmedSoundFileURL.absoluteString)")
-            do {
-                if try trimmedSoundFileURL.checkResourceIsReachable() {
-                    print("is reachable")
-                }
-                
-                try FileManager.default.removeItem(atPath: trimmedSoundFileURL.absoluteString)
-            } catch {
-                print("could not remove \(trimmedSoundFileURL)")
-                print(error.localizedDescription)
-            }
-            
-        }
-        
-        print("creating export session for \(asset)")
-        
-        if let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) {
-            exporter.outputFileType = AVFileType.m4a
-            exporter.outputURL = trimmedSoundFileURL
-            
-            // e.g. the first 5 seconds
-            let startTime = CMTimeMake(0, 1)
-            let stopTime = CMTimeMake(5, 1)
-            exporter.timeRange = CMTimeRangeFromTimeToTime(startTime, stopTime)
-            
-            //            // set up the audio mix
-            //            let tracks = asset.tracksWithMediaType(AVMediaTypeAudio)
-            //            if tracks.count == 0 {
-            //                return
-            //            }
-            //            let track = tracks[0]
-            //            let exportAudioMix = AVMutableAudioMix()
-            //            let exportAudioMixInputParameters =
-            //            AVMutableAudioMixInputParameters(track: track)
-            //            exportAudioMixInputParameters.setVolume(1.0, atTime: CMTimeMake(0, 1))
-            //            exportAudioMix.inputParameters = [exportAudioMixInputParameters]
-            //            // exporter.audioMix = exportAudioMix
-            
-            // do it
-            exporter.exportAsynchronously(completionHandler: {
-                print("export complete \(exporter.status)")
-                
-                switch exporter.status {
-                case  AVAssetExportSession.Status.failed:
-                    
-                    if let e = exporter.error {
-                        print("export failed \(e)")
-                    }
-                    
-                case AVAssetExportSession.Status.cancelled:
-                    print("export cancelled \(String(describing: exporter.error))")
-                default:
-                    print("export complete")
-                }
-            })
-        } else {
-            print("cannot create AVAssetExportSession for asset \(asset)")
-        }
-        
-    }
-    */
 
     
     func updateFrequency(value: Double) {
