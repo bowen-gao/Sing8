@@ -287,6 +287,12 @@ class RecordViewController: UIViewController {
             //print("\(noteNamesWithSharps[index])\(octave)")
             //noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
         }
+        if tracker_mic.amplitude < tracker_player.amplitude {
+            self.volumeScore = self.volumeScore-1
+        }
+        else if tracker_mic.amplitude > tracker_mic.amplitude*2 {
+            self.volumeScore = self.volumeScore-1
+        }
         
     }
     @IBAction func mainButtonTouched(sender: UIButton) {
@@ -312,7 +318,7 @@ class RecordViewController: UIViewController {
             } catch { AKLog("Errored recording.") }
             bgmPlay()
             lv()
-            
+            self.volumeScore = 100
             ftimer=Timer.scheduledTimer(timeInterval: 0.1,
                                  target: self,
                                  selector: #selector(RecordViewController.updateF),
@@ -526,7 +532,7 @@ class RecordViewController: UIViewController {
     @IBAction func showResult(_ sender: Any) {
         // Hardcoded -> testing purposes
         self.totalScore = 10
-        self.volumeScore = 20
+        //self.volumeScore = 20
         //self.pitchScore = 30
         
         // Call to the the analyzer
