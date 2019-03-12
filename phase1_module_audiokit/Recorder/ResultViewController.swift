@@ -12,13 +12,15 @@ class ResultViewController: UIViewController {
 
     @IBOutlet weak var totalScoreLabel: UILabel!
     @IBOutlet weak var songTitleLabel: UILabel!
-    @IBOutlet weak var pitchScoreTitle: UILabel!
-    @IBOutlet weak var volumeScoreTitle: UILabel!
+    @IBOutlet weak var pitchScoreLabel: UILabel!
+    @IBOutlet weak var volumeScoreLabel: UILabel!
+    @IBOutlet weak var commentTextLabel: UILabel!
     
     var musicTitle = ""
     var totalScore = 0
     var volumeScore = 0
     var pitchScore = 0
+    var comment = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +28,9 @@ class ResultViewController: UIViewController {
         // Do any additional setup after loading the view.
         songTitleLabel.text = "(Song: "+musicTitle+")"
         totalScoreLabel.text = String(totalScore)
-        pitchScoreTitle.text = String(pitchScore)+"%"
-        volumeScoreTitle.text = String(volumeScore)+"%"
+        pitchScoreLabel.text = String(pitchScore)+"%"
+        volumeScoreLabel.text = String(volumeScore)+"%"
+        commentTextLabel.text = comment
     }
     
 

@@ -46,6 +46,11 @@ class RecordViewController: UIViewController {
     var totalScore = 0
     var volumeScore = 0
     var pitchScore = 0
+    var comment = ""
+    
+    @IBOutlet weak var currentScoreLabel: UILabel!
+    @IBOutlet weak var correctKeyLabel: UILabel!
+    @IBOutlet weak var userKeyLabel: UILabel!
     
     let noteFrequencies = [16.35, 17.32, 18.35, 19.45, 20.6, 21.83, 23.12, 24.5, 25.96, 27.5, 29.14, 30.87]
     let noteNamesWithSharps = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"]
@@ -122,6 +127,9 @@ class RecordViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //print(soundtrack?.title)
+        currentScoreLabel.text = "0"
+        correctKeyLabel.text = "-"
+        userKeyLabel.text = "-"
         plot?.node = mic
         setupButtonNames()
         setupUIForRecording()
@@ -259,6 +267,7 @@ class RecordViewController: UIViewController {
             }
             let octave = Int(log2f(Float(tracker_player.frequency) / frequency))
             print("\(noteNamesWithSharps[index])\(octave)")
+            correctKeyLabel.text = "\(noteNamesWithSharps[index])\(octave)"
             //noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
         }
         
@@ -503,6 +512,7 @@ class RecordViewController: UIViewController {
         self.totalScore = 10
         self.volumeScore = 20
         self.pitchScore = 30
+        self.comment = "Excellent Voice!"
         
         // Call to the the analyzer
         
@@ -516,6 +526,7 @@ class RecordViewController: UIViewController {
         viewController.totalScore = self.totalScore
         viewController.pitchScore = self.pitchScore
         viewController.volumeScore = self.volumeScore
+        viewController.comment = self.comment
     }
     
 }
