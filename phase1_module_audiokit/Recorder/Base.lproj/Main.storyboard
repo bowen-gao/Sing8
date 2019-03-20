@@ -9,6 +9,78 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--History View Controller-->
+        <scene sceneID="wez-Mu-wLo">
+            <objects>
+                <viewController id="GT5-oH-9h1" customClass="HistoryViewController" customModule="Recorder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="i7N-2e-csV"/>
+                        <viewControllerLayoutGuide type="bottom" id="xXY-PS-ewO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iix-tt-jg5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0LY-BU-lme">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="90" id="GXm-Nq-8i4" customClass="HistoryCell" customModule="Recorder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GXm-Nq-8i4" id="L9F-Mb-mgJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="80" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTj-B1-cEz" userLabel="Score">
+                                                    <rect key="frame" x="15" y="11" width="73" height="68"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                    <color key="textColor" red="0.34676800400000002" green="0.77082429060000002" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eH-LC-Cmu">
+                                                    <rect key="frame" x="96" y="22" width="231" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="January 12, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeH-IB-SQG" userLabel="Time">
+                                                    <rect key="frame" x="96" y="52" width="231" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="scoreView" destination="PTj-B1-cEz" id="FGc-c3-D3P"/>
+                                            <outlet property="timeView" destination="LeH-IB-SQG" id="dqf-BV-qB0"/>
+                                            <outlet property="titleView" destination="1eH-LC-Cmu" id="40X-EO-Erx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0LY-BU-lme" secondAttribute="trailing" id="0Ir-gk-7Hj"/>
+                            <constraint firstItem="0LY-BU-lme" firstAttribute="top" secondItem="i7N-2e-csV" secondAttribute="bottom" id="4hs-lc-VNT"/>
+                            <constraint firstItem="0LY-BU-lme" firstAttribute="leading" secondItem="iix-tt-jg5" secondAttribute="leading" id="YMa-18-Ris"/>
+                            <constraint firstItem="xXY-PS-ewO" firstAttribute="top" secondItem="0LY-BU-lme" secondAttribute="bottom" id="oNG-xU-1pC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="0LY-BU-lme" id="Zx7-Xl-0go"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ktm-M7-Nm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2197.5999999999999" y="-259.35960591133005"/>
+        </scene>
         <!--Record View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -366,7 +438,13 @@
                             <constraint firstAttribute="trailing" secondItem="WPq-tP-rfc" secondAttribute="trailing" id="uik-nT-oZ1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="YDP-JO-uVz"/>
+                    <navigationItem key="navigationItem" id="YDP-JO-uVz">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="bookmarks" id="z88-vz-6kQ">
+                            <connections>
+                                <segue destination="GT5-oH-9h1" kind="show" id="0ae-j3-ADD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="soundtrackTableView" destination="WPq-tP-rfc" id="dbv-JU-v0h"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="soundtrackToRecord" id="ayf-RZ-NCu"/>

@@ -383,8 +383,8 @@ class RecordViewController: UIViewController {
                 formatter.timeZone = TimeZone.current
                 formatter.dateFormat = "yyyy-MM-dd-HH-mm"
                 let timeStamp = formatter.string(from: currentTime as Date)
-                let fileName = timeStamp+"+"+(soundtrack?.title)!+"+"+String(totalScore)
-                // Filename Format: timeStamp+musicName+score.wav
+                let fileName = "record+"+timeStamp+"+"+(soundtrack?.title)!+"+"+String(Int(0.8*self.pitchScore+0.2*self.volumeScore))+"+"
+                // Filename Format: record+timeStamp+musicName+score+.wav
                 tape.exportAsynchronously(name: fileName+".wav",
                                           baseDir: .documents,
                                           exportFormat: .wav) {_, exportError in

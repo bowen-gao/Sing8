@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SoundtrackViewController: UIViewController {
 
@@ -24,12 +25,18 @@ class SoundtrackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        AF.request("https://ece496-sing8.herokuapp.com/api/leaderboard/test").responseJSON { response in
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+        }
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.title = "Soundtrack List"
+        self.title = "Soundtrack"
         soundtrackList = initSoundtrackList();
         soundtrackTableView.delegate = self
         soundtrackTableView.dataSource = self

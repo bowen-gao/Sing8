@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.0.0-beta.3)
   - AudioKit (4.5.6):
     - AudioKit/Core (= 4.5.6)
     - AudioKit/UI (= 4.5.6)
@@ -8,18 +9,21 @@ PODS:
   - SpotlightLyrics (0.1.4)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0.0-beta.3)
   - AudioKit (~> 4.5)
   - SpotlightLyrics
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - AudioKit
     - SpotlightLyrics
 
 SPEC CHECKSUMS:
+  Alamofire: 50d6fa7e8cbe7f84559e86ab641ffd029db655f8
   AudioKit: 84f5a444902a74ac32cfe8488e72782792ff2edc
   SpotlightLyrics: 3ddc5547663a1afe8b064cfc2934d471767fa875
 
-PODFILE CHECKSUM: 2a94f8e153e66d18fe34754fa364f293bee26e9f
+PODFILE CHECKSUM: f100a7b237d316e79536219ed33dcff1f1ab31df
 
 COCOAPODS: 1.5.3

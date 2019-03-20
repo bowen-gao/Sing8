@@ -8,4 +8,7 @@ target 'Recorder' do
   # Pods for Recorder
   pod 'SpotlightLyrics'
   pod 'AudioKit', '~> 4.5'
+
+  # Pods for AJAX
+  pod 'Alamofire', '~> 5.0.0-beta.3'
 end
