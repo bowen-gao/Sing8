@@ -2,7 +2,7 @@
 
 let dataSet = new Object();
 
-dataSet["FenShou"] = [[100, 2, 3, 4], [80, 6, 7, 8], [90, 6, 7, 8]]
+dataSet["test"] = [[100, "aaaaaa", "1.mp3", "2019-03-19-02-34"], [90, "bbbbbb", "2.mp3", "2019-03-19-02-35"], [90, "gggggg", "3.mp3", "2019-03-19-03-34"]]
 
 let addRecord = (score, username, musicTitle, fileLocation, timestamp) => {
 	if (showByTitle(musicTitle) !== undefined) {

@@ -10,6 +10,7 @@
     "koa": "*",
     "koa-bodyparser": "*",
     "koa-router": "*",
-    "koa-body": "*"
+    "koa-body": "*",
+    "koa-static": "*"
   }
 }

@@ -13,4 +13,5 @@ app.use(routers.routes()).use(routers.allowedMethods());
 
 app.use(koaStatic('cache'));
 
-app.listen(3000);
+var port = process.env.PORT || 8080;
+app.listen(port);
