@@ -47,6 +47,7 @@ class RecordViewController: UIViewController {
     var volumeScore = 0
     var pitchScore = 0
     var comment = ""
+    var recordFile = ""
     
     @IBOutlet weak var currentScoreLabel: UILabel!
     @IBOutlet weak var correctKeyLabel: UILabel!
@@ -385,6 +386,7 @@ class RecordViewController: UIViewController {
                 let timeStamp = formatter.string(from: currentTime as Date)
                 let fileName = "record+"+timeStamp+"+"+(soundtrack?.title)!+"+"+String(Int(0.8*self.pitchScore+0.2*self.volumeScore))+"+"
                 // Filename Format: record+timeStamp+musicName+score+.wav
+                self.recordFile = fileName+".wav"
                 tape.exportAsynchronously(name: fileName+".wav",
                                           baseDir: .documents,
                                           exportFormat: .wav) {_, exportError in
@@ -522,6 +524,7 @@ class RecordViewController: UIViewController {
         viewController.pitchScore = self.pitchScore
         viewController.volumeScore = self.volumeScore
         viewController.comment = self.comment
+        viewController.fileName = self.recordFile
     }
     
 }

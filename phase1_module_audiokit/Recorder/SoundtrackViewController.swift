@@ -25,12 +25,6 @@ class SoundtrackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        AF.request("https://ece496-sing8.herokuapp.com/api/leaderboard/test").responseJSON { response in
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
-            }
-        }
 
     }
     

@@ -11,6 +11,8 @@
 		879816942240E87F00C3F5FB /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879816932240E87F00C3F5FB /* HistoryViewController.swift */; };
 		879816962240EB8800C3F5FB /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879816952240EB8800C3F5FB /* HistoryCell.swift */; };
 		879816982240ECE400C3F5FB /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879816972240ECE400C3F5FB /* History.swift */; };
+		8798169A2242E06500C3F5FB /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879816992242E06500C3F5FB /* LeaderboardViewController.swift */; };
+		8798169C2242E77600C3F5FB /* LeaderboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798169B2242E77600C3F5FB /* LeaderboardCell.swift */; };
 		87F4621721E5C8A800DC66F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */; };
 		87F4621B21E5D31A00DC66F8 /* Soundtracks.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87F4621A21E5D31A00DC66F8 /* Soundtracks.xcassets */; };
 		87F4621D21E5D99600DC66F8 /* SoundtrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4621C21E5D99600DC66F8 /* SoundtrackCell.swift */; };
@@ -48,6 +50,8 @@
 		879816932240E87F00C3F5FB /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		879816952240EB8800C3F5FB /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		879816972240ECE400C3F5FB /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		879816992242E06500C3F5FB /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		8798169B2242E77600C3F5FB /* LeaderboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardCell.swift; sourceTree = "<group>"; };
 		87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87F4621A21E5D31A00DC66F8 /* Soundtracks.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Soundtracks.xcassets; sourceTree = "<group>"; };
 		87F4621C21E5D99600DC66F8 /* SoundtrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundtrackCell.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				879816932240E87F00C3F5FB /* HistoryViewController.swift */,
 				879816952240EB8800C3F5FB /* HistoryCell.swift */,
 				879816972240ECE400C3F5FB /* History.swift */,
+				879816992242E06500C3F5FB /* LeaderboardViewController.swift */,
+				8798169B2242E77600C3F5FB /* LeaderboardCell.swift */,
 			);
 			path = Recorder;
 			sourceTree = "<group>";
@@ -293,6 +299,8 @@
 			files = (
 				879816982240ECE400C3F5FB /* History.swift in Sources */,
 				87F4622121E5DDB300DC66F8 /* Soundtrack.swift in Sources */,
+				8798169A2242E06500C3F5FB /* LeaderboardViewController.swift in Sources */,
+				8798169C2242E77600C3F5FB /* LeaderboardCell.swift in Sources */,
 				C4486EF11D42AE4700FE135F /* AppDelegate.swift in Sources */,
 				C4486EF61D42AE4700FE135F /* RecordViewController.swift in Sources */,
 				87F4621F21E5DC5200DC66F8 /* SoundtrackViewController.swift in Sources */,

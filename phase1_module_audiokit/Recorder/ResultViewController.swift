@@ -21,6 +21,7 @@ class ResultViewController: UIViewController {
     var volumeScore = 0
     var pitchScore = 0
     var comment = ""
+    var fileName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,5 +64,18 @@ class ResultViewController: UIViewController {
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
         self.present(activityVC, animated: true, completion: nil)
+    }
+    
+
+    @IBAction func showLeaderboard(_ sender: Any) {
+        performSegue(withIdentifier: "LeaderboardEntry", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier=="LeaderboardEntry"){
+            let nextView = segue.destination as! LeaderboardViewController
+            nextView.soundtrackTitle = self.musicTitle
+            nextView.fileName = self.fileName
+        }
     }
 }
