@@ -17,8 +17,16 @@ class SoundtrackViewController: UIViewController {
     
     func initSoundtrackList() -> [Soundtrack] {
         var result: [Soundtrack] = []
-        result.append(Soundtrack(title:"FenShouHouBuYaoZuoPengYou"));
-        result.append(Soundtrack(title:"XiTieJie"));
+        result.append(Soundtrack(title:"分手后不要做朋友"));
+        result.append(Soundtrack(title:"离人"));
+        result.append(Soundtrack(title:"青花瓷"));
+        result.append(Soundtrack(title:"喜帖街"));
+        result.append(Soundtrack(title:"Jingle Bells"));
+        result.append(Soundtrack(title:"Just give me a reason"));
+        result.append(Soundtrack(title:"Lonely Christmas"));
+        result.append(Soundtrack(title:"My Heart Will Go On"));
+        result.append(Soundtrack(title:"Someone Like You"));
+        result.append(Soundtrack(title:"Yesterday Once More"));
         return result
     }
     
@@ -88,6 +96,7 @@ extension SoundtrackViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let chosen = soundtrackList[indexPath.row]
+        print("====> Chosen: "+chosen.title)
         performSegue(withIdentifier: "soundtrackToRecord", sender: chosen)
     }
     

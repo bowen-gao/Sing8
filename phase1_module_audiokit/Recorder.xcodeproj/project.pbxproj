@@ -13,16 +13,32 @@
 		879816982240ECE400C3F5FB /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879816972240ECE400C3F5FB /* History.swift */; };
 		8798169A2242E06500C3F5FB /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879816992242E06500C3F5FB /* LeaderboardViewController.swift */; };
 		8798169C2242E77600C3F5FB /* LeaderboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798169B2242E77600C3F5FB /* LeaderboardCell.swift */; };
+		879816B122433B0B00C3F5FB /* Lonely Christmas.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 8798169D22433B0A00C3F5FB /* Lonely Christmas.lrc */; };
+		879816B222433B0B00C3F5FB /* My Heart Will Go On.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8798169E22433B0A00C3F5FB /* My Heart Will Go On.mp3 */; };
+		879816B322433B0B00C3F5FB /* 青花瓷.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8798169F22433B0A00C3F5FB /* 青花瓷.mp3 */; };
+		879816B422433B0B00C3F5FB /* Jingle Bells.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 879816A022433B0A00C3F5FB /* Jingle Bells.lrc */; };
+		879816B522433B0B00C3F5FB /* 喜帖街.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 879816A122433B0A00C3F5FB /* 喜帖街.mp3 */; };
+		879816B622433B0B00C3F5FB /* Just give me a reason.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 879816A222433B0A00C3F5FB /* Just give me a reason.mp3 */; };
+		879816B722433B0B00C3F5FB /* 喜帖街.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 879816A322433B0A00C3F5FB /* 喜帖街.lrc */; };
+		879816B822433B0B00C3F5FB /* Yesterday Once More.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 879816A422433B0A00C3F5FB /* Yesterday Once More.mp3 */; };
+		879816B922433B0B00C3F5FB /* 离人.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 879816A522433B0A00C3F5FB /* 离人.mp3 */; };
+		879816BA22433B0B00C3F5FB /* Just give me a reason.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 879816A622433B0A00C3F5FB /* Just give me a reason.lrc */; };
+		879816BB22433B0B00C3F5FB /* Someone Like You.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 879816A722433B0A00C3F5FB /* Someone Like You.lrc */; };
+		879816BC22433B0B00C3F5FB /* Someone Like You.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 879816A822433B0B00C3F5FB /* Someone Like You.mp3 */; };
+		879816BD22433B0B00C3F5FB /* Yesterday Once More.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 879816A922433B0B00C3F5FB /* Yesterday Once More.lrc */; };
+		879816BE22433B0B00C3F5FB /* Jingle Bells.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 879816AA22433B0B00C3F5FB /* Jingle Bells.mp3 */; };
+		879816BF22433B0B00C3F5FB /* 分手后不要做朋友.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 879816AB22433B0B00C3F5FB /* 分手后不要做朋友.mp3 */; };
+		879816C022433B0B00C3F5FB /* 离人.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 879816AC22433B0B00C3F5FB /* 离人.lrc */; };
+		879816C122433B0B00C3F5FB /* 分手后不要做朋友.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 879816AD22433B0B00C3F5FB /* 分手后不要做朋友.lrc */; };
+		879816C222433B0B00C3F5FB /* Lonely Christmas.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 879816AE22433B0B00C3F5FB /* Lonely Christmas.mp3 */; };
+		879816C322433B0B00C3F5FB /* My Heart Will Go On.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 879816AF22433B0B00C3F5FB /* My Heart Will Go On.lrc */; };
+		879816C422433B0B00C3F5FB /* 青花瓷.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 879816B022433B0B00C3F5FB /* 青花瓷.lrc */; };
 		87F4621721E5C8A800DC66F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */; };
 		87F4621B21E5D31A00DC66F8 /* Soundtracks.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87F4621A21E5D31A00DC66F8 /* Soundtracks.xcassets */; };
 		87F4621D21E5D99600DC66F8 /* SoundtrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4621C21E5D99600DC66F8 /* SoundtrackCell.swift */; };
 		87F4621F21E5DC5200DC66F8 /* SoundtrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4621E21E5DC5200DC66F8 /* SoundtrackViewController.swift */; };
 		87F4622121E5DDB300DC66F8 /* Soundtrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4622021E5DDB300DC66F8 /* Soundtrack.swift */; };
 		C1C282CD21E7CB78005CED8E /* Santa Monica Dream.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C1C282CC21E7CB78005CED8E /* Santa Monica Dream.lrc */; };
-		C1E360022230D01500A0D7E6 /* XiTieJie.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C1E35FFE2230D01500A0D7E6 /* XiTieJie.lrc */; };
-		C1E360032230D01500A0D7E6 /* XiTieJie.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1E35FFF2230D01500A0D7E6 /* XiTieJie.mp3 */; };
-		C1E360042230D01500A0D7E6 /* FenShouHouBuYaoZuoPengYou.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C1E360002230D01500A0D7E6 /* FenShouHouBuYaoZuoPengYou.lrc */; };
-		C1E360052230D01500A0D7E6 /* FenShouHouBuYaoZuoPengYou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1E360012230D01500A0D7E6 /* FenShouHouBuYaoZuoPengYou.mp3 */; };
 		C1E360072235C7E900A0D7E6 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E360062235C7E900A0D7E6 /* ResultViewController.swift */; };
 		C4486EF11D42AE4700FE135F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4486EE91D42AE4700FE135F /* AppDelegate.swift */; };
 		C4486EF21D42AE4700FE135F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4486EEA1D42AE4700FE135F /* Assets.xcassets */; };
@@ -52,6 +68,26 @@
 		879816972240ECE400C3F5FB /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		879816992242E06500C3F5FB /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		8798169B2242E77600C3F5FB /* LeaderboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardCell.swift; sourceTree = "<group>"; };
+		8798169D22433B0A00C3F5FB /* Lonely Christmas.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Lonely Christmas.lrc"; sourceTree = "<group>"; };
+		8798169E22433B0A00C3F5FB /* My Heart Will Go On.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "My Heart Will Go On.mp3"; sourceTree = "<group>"; };
+		8798169F22433B0A00C3F5FB /* 青花瓷.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "青花瓷.mp3"; sourceTree = "<group>"; };
+		879816A022433B0A00C3F5FB /* Jingle Bells.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Jingle Bells.lrc"; sourceTree = "<group>"; };
+		879816A122433B0A00C3F5FB /* 喜帖街.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "喜帖街.mp3"; sourceTree = "<group>"; };
+		879816A222433B0A00C3F5FB /* Just give me a reason.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Just give me a reason.mp3"; sourceTree = "<group>"; };
+		879816A322433B0A00C3F5FB /* 喜帖街.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "喜帖街.lrc"; sourceTree = "<group>"; };
+		879816A422433B0A00C3F5FB /* Yesterday Once More.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Yesterday Once More.mp3"; sourceTree = "<group>"; };
+		879816A522433B0A00C3F5FB /* 离人.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "离人.mp3"; sourceTree = "<group>"; };
+		879816A622433B0A00C3F5FB /* Just give me a reason.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Just give me a reason.lrc"; sourceTree = "<group>"; };
+		879816A722433B0A00C3F5FB /* Someone Like You.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Someone Like You.lrc"; sourceTree = "<group>"; };
+		879816A822433B0B00C3F5FB /* Someone Like You.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Someone Like You.mp3"; sourceTree = "<group>"; };
+		879816A922433B0B00C3F5FB /* Yesterday Once More.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Yesterday Once More.lrc"; sourceTree = "<group>"; };
+		879816AA22433B0B00C3F5FB /* Jingle Bells.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jingle Bells.mp3"; sourceTree = "<group>"; };
+		879816AB22433B0B00C3F5FB /* 分手后不要做朋友.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "分手后不要做朋友.mp3"; sourceTree = "<group>"; };
+		879816AC22433B0B00C3F5FB /* 离人.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "离人.lrc"; sourceTree = "<group>"; };
+		879816AD22433B0B00C3F5FB /* 分手后不要做朋友.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "分手后不要做朋友.lrc"; sourceTree = "<group>"; };
+		879816AE22433B0B00C3F5FB /* Lonely Christmas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lonely Christmas.mp3"; sourceTree = "<group>"; };
+		879816AF22433B0B00C3F5FB /* My Heart Will Go On.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "My Heart Will Go On.lrc"; sourceTree = "<group>"; };
+		879816B022433B0B00C3F5FB /* 青花瓷.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "青花瓷.lrc"; sourceTree = "<group>"; };
 		87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87F4621A21E5D31A00DC66F8 /* Soundtracks.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Soundtracks.xcassets; sourceTree = "<group>"; };
 		87F4621C21E5D99600DC66F8 /* SoundtrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundtrackCell.swift; sourceTree = "<group>"; };
@@ -59,10 +95,6 @@
 		87F4622021E5DDB300DC66F8 /* Soundtrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soundtrack.swift; sourceTree = "<group>"; };
 		8DAD9EDD1D3E4A3400CD3B0A /* Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1C282CC21E7CB78005CED8E /* Santa Monica Dream.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Santa Monica Dream.lrc"; sourceTree = "<group>"; };
-		C1E35FFE2230D01500A0D7E6 /* XiTieJie.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XiTieJie.lrc; sourceTree = "<group>"; };
-		C1E35FFF2230D01500A0D7E6 /* XiTieJie.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = XiTieJie.mp3; sourceTree = "<group>"; };
-		C1E360002230D01500A0D7E6 /* FenShouHouBuYaoZuoPengYou.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FenShouHouBuYaoZuoPengYou.lrc; sourceTree = "<group>"; };
-		C1E360012230D01500A0D7E6 /* FenShouHouBuYaoZuoPengYou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = FenShouHouBuYaoZuoPengYou.mp3; sourceTree = "<group>"; };
 		C1E360062235C7E900A0D7E6 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		C4486EE91D42AE4700FE135F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4486EEA1D42AE4700FE135F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,10 +166,26 @@
 		C1E35FFD2230CFE400A0D7E6 /* soundtrack */ = {
 			isa = PBXGroup;
 			children = (
-				C1E360002230D01500A0D7E6 /* FenShouHouBuYaoZuoPengYou.lrc */,
-				C1E360012230D01500A0D7E6 /* FenShouHouBuYaoZuoPengYou.mp3 */,
-				C1E35FFE2230D01500A0D7E6 /* XiTieJie.lrc */,
-				C1E35FFF2230D01500A0D7E6 /* XiTieJie.mp3 */,
+				879816AD22433B0B00C3F5FB /* 分手后不要做朋友.lrc */,
+				879816AB22433B0B00C3F5FB /* 分手后不要做朋友.mp3 */,
+				879816AC22433B0B00C3F5FB /* 离人.lrc */,
+				879816A522433B0A00C3F5FB /* 离人.mp3 */,
+				879816B022433B0B00C3F5FB /* 青花瓷.lrc */,
+				8798169F22433B0A00C3F5FB /* 青花瓷.mp3 */,
+				879816A322433B0A00C3F5FB /* 喜帖街.lrc */,
+				879816A122433B0A00C3F5FB /* 喜帖街.mp3 */,
+				879816A022433B0A00C3F5FB /* Jingle Bells.lrc */,
+				879816AA22433B0B00C3F5FB /* Jingle Bells.mp3 */,
+				879816A622433B0A00C3F5FB /* Just give me a reason.lrc */,
+				879816A222433B0A00C3F5FB /* Just give me a reason.mp3 */,
+				8798169D22433B0A00C3F5FB /* Lonely Christmas.lrc */,
+				879816AE22433B0B00C3F5FB /* Lonely Christmas.mp3 */,
+				879816AF22433B0B00C3F5FB /* My Heart Will Go On.lrc */,
+				8798169E22433B0A00C3F5FB /* My Heart Will Go On.mp3 */,
+				879816A722433B0A00C3F5FB /* Someone Like You.lrc */,
+				879816A822433B0B00C3F5FB /* Someone Like You.mp3 */,
+				879816A922433B0B00C3F5FB /* Yesterday Once More.lrc */,
+				879816A422433B0A00C3F5FB /* Yesterday Once More.mp3 */,
 			);
 			name = soundtrack;
 			sourceTree = "<group>";
@@ -228,14 +276,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				879816B922433B0B00C3F5FB /* 离人.mp3 in Resources */,
+				879816BB22433B0B00C3F5FB /* Someone Like You.lrc in Resources */,
+				879816B322433B0B00C3F5FB /* 青花瓷.mp3 in Resources */,
+				879816C222433B0B00C3F5FB /* Lonely Christmas.mp3 in Resources */,
 				C4486EF21D42AE4700FE135F /* Assets.xcassets in Resources */,
-				C1E360022230D01500A0D7E6 /* XiTieJie.lrc in Resources */,
-				C1E360052230D01500A0D7E6 /* FenShouHouBuYaoZuoPengYou.mp3 in Resources */,
-				C1E360042230D01500A0D7E6 /* FenShouHouBuYaoZuoPengYou.lrc in Resources */,
 				87F4621721E5C8A800DC66F8 /* LaunchScreen.storyboard in Resources */,
+				879816BA22433B0B00C3F5FB /* Just give me a reason.lrc in Resources */,
+				879816B722433B0B00C3F5FB /* 喜帖街.lrc in Resources */,
+				879816B622433B0B00C3F5FB /* Just give me a reason.mp3 in Resources */,
+				879816BC22433B0B00C3F5FB /* Someone Like You.mp3 in Resources */,
+				879816B222433B0B00C3F5FB /* My Heart Will Go On.mp3 in Resources */,
+				879816B422433B0B00C3F5FB /* Jingle Bells.lrc in Resources */,
+				879816BF22433B0B00C3F5FB /* 分手后不要做朋友.mp3 in Resources */,
+				879816BD22433B0B00C3F5FB /* Yesterday Once More.lrc in Resources */,
+				879816C422433B0B00C3F5FB /* 青花瓷.lrc in Resources */,
 				87F4621B21E5D31A00DC66F8 /* Soundtracks.xcassets in Resources */,
+				879816BE22433B0B00C3F5FB /* Jingle Bells.mp3 in Resources */,
+				879816B122433B0B00C3F5FB /* Lonely Christmas.lrc in Resources */,
+				879816C122433B0B00C3F5FB /* 分手后不要做朋友.lrc in Resources */,
+				879816B522433B0B00C3F5FB /* 喜帖街.mp3 in Resources */,
+				879816C322433B0B00C3F5FB /* My Heart Will Go On.lrc in Resources */,
 				C4486EF41D42AE4700FE135F /* Main.storyboard in Resources */,
-				C1E360032230D01500A0D7E6 /* XiTieJie.mp3 in Resources */,
+				879816C022433B0B00C3F5FB /* 离人.lrc in Resources */,
+				879816B822433B0B00C3F5FB /* Yesterday Once More.mp3 in Resources */,
 				C1C282CD21E7CB78005CED8E /* Santa Monica Dream.lrc in Resources */,
 				C4486EF31D42AE4700FE135F /* LaunchScreen.storyboard in Resources */,
 			);
