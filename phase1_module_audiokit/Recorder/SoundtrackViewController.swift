@@ -59,7 +59,6 @@ class SoundtrackViewController: UIViewController {
         if segue.identifier == "soundtrackToRecord"{
             let nextView = segue.destination as! RecordViewController
             nextView.soundtrack = sender as? Soundtrack
-             
         }
     }
     

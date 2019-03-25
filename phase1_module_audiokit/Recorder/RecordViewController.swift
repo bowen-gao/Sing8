@@ -128,6 +128,15 @@ class RecordViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //print(soundtrack?.title)
+        do{
+            let file = try AKAudioFile(forReading: URL.init(fileURLWithPath: Bundle.main.path(forResource: soundtrack?.title, ofType: "mp3")!))
+            bgm_player.load(audioFile: file)
+        }
+        catch{
+            AKLog("bgm player error")
+        }
+        bgm_player.isLooping = true
+        bgm_player.completionHandler = playingEnded
         currentScoreLabel.text = "0"
         correctKeyLabel.text = "-"
         userKeyLabel.text = "-"
@@ -228,6 +237,7 @@ class RecordViewController: UIViewController {
     }
     
     private func bgmPlay(){
+        print(soundtrack?.title)
         bgm_player.play();
         print("playing music!")
     }
@@ -278,6 +288,7 @@ class RecordViewController: UIViewController {
             currentScoreLabel.text = String(self.pitchScore)
         }
         if tracker_player.amplitude > 0.1 {
+            print(tracker_player.frequency)
             var frequency = Float(tracker_player.frequency)
             while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
                 frequency /= 2.0
