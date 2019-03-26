@@ -409,8 +409,8 @@ class RecordViewController: UIViewController {
                 let timeStamp = formatter.string(from: currentTime as Date)
                 let fileName = "record+"+timeStamp+"+"+(soundtrack?.title)!+"+"+String(Int(0.8*self.pitchScore+0.2*self.volumeScore))+"+"
                 // Filename Format: record+timeStamp+musicName+score+.wav
-                self.recordFile = fileName+".wav"
-                tape.exportAsynchronously(name: fileName+".wav",
+                self.recordFile = fileName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!+".wav"
+                tape.exportAsynchronously(name: self.recordFile,
                                           baseDir: .documents,
                                           exportFormat: .wav) {_, exportError in
                     if let error = exportError {

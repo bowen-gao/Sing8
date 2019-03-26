@@ -26,6 +26,7 @@ class HistoryViewController: UIViewController {
         historyList = initHistoryList()
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
     
 
@@ -50,12 +51,14 @@ class HistoryViewController: UIViewController {
         let contentsOfPath = try? manager.contentsOfDirectory(atPath: url.path)
         //print("contentsOfPath: \(contentsOfPath)")
         for i in contentsOfPath! {
-            let cache = i.components(separatedBy: "+")
-            if(cache.count==5){
+            //let tempFileName = i
+            let decoded = i.removingPercentEncoding
+            let cache = decoded!.components(separatedBy: "+")
+            if(cache.count==5 && cache[0]=="record"){
                 // Reformat the time
                 let time_cache = cache[1].components(separatedBy: "-")
                 let newTime = time_cache[3]+":"+time_cache[4]+" on "+DateFormatter().monthSymbols[Int.init(time_cache[1])! - 1]+" "+time_cache[2]+", "+time_cache[0]
-                result.append(History(score: cache[3], title: cache[2], time: newTime, file: i))
+                result.append(History(score: cache[3], title: cache[2], time: newTime, file: i.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!))
             }
         }
         return result
@@ -86,11 +89,12 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate{
         let mp3FileURL = URL.init(string: url.absoluteString+historyList[indexPath.row].file)
         print("Ready to play music: "+mp3FileURL!.absoluteString)
         bgmPlay(fileLocation: mp3FileURL!)
+        
     }
     
     func bgmPlay(fileLocation: URL){
         avPlayer = AVPlayer(url: fileLocation)
-    
+        
         // Refers to: https://stackoverflow.com/questions/44152949/how-to-track-when-song-finished-playing-in-avplayer
         NotificationCenter.default.addObserver(self, selector: #selector(self.finishedPlaying(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: avPlayer.currentItem)
         
