@@ -530,9 +530,19 @@ class RecordViewController: UIViewController {
         self.totalScore = Int(0.8*self.pitchScore+0.2*self.volumeScore)
         //self.volumeScore = 20
         //self.pitchScore = 30
-        self.comment = "Excellent Voice!"
-        print(self.comment)
-        
+        if self.pitchScore>30 {
+            self.comment="Excellent pitch accuracy!"
+        }
+        else {
+            self.comment="You should improve pitch accuracy!"
+        }
+        if self.volumeScore>30 {
+            self.comment=self.comment+"\nNice voice！"
+        }
+        else{
+            self.comment=self.comment+"\nYou should sing louder!"
+        }
+
         // Call to the the analyzer
         if self.volumeScore<50 && self.pitchScore>80 {
             
