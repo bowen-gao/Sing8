@@ -536,6 +536,7 @@ class RecordViewController: UIViewController {
     
     
     @IBAction func showResult(_ sender: Any) {
+        
         // Hardcoded -> testing purposes
         self.totalScore = Int(0.8*self.pitchScore+0.2*self.volumeScore)
         //self.volumeScore = 20
@@ -553,10 +554,7 @@ class RecordViewController: UIViewController {
             self.comment=self.comment+"\nYou should sing louder!"
         }
 
-        // Call to the the analyzer
-        if self.volumeScore<50 && self.pitchScore>80 {
-            
-        }
+
         // Jump to the result page
         performSegue(withIdentifier: "redirectResultPage", sender: self)
     }
