@@ -136,6 +136,11 @@ class RecordViewController: UIViewController {
         catch{
             AKLog("bgm player error")
         }
+        pitchscore_array=[]
+        micarray=[]
+        playerarray=[]
+        pitchScore=0
+        volumeScore=100
         bgm_player.isLooping = true
         bgm_player.completionHandler = playingEnded
         currentScoreLabel.text = "0"
@@ -490,6 +495,11 @@ class RecordViewController: UIViewController {
     }
  */
     @IBAction func resetButtonTouched(sender: UIButton) {
+        pitchscore_array=[]
+        micarray=[]
+        playerarray=[]
+        pitchScore=0
+        volumeScore=100
         player.stop()
         plot?.node = mic
         do {
