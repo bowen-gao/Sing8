@@ -58,6 +58,7 @@ class RecordViewController: UIViewController {
     let noteNamesWithFlats = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"]
     var micarray:[Float]=[]
     var playerarray:[Float]=[]
+    var pitchscore_array:[Int]=[]
     var audioPlayer = AVAudioPlayer()
     
     var bgm_player: AKPlayer!
@@ -253,15 +254,18 @@ class RecordViewController: UIViewController {
     @objc func updateF() {
         //infoLabel.text = String(format: "%0.1f", tracker.frequency)
         //print(tracker.amplitude)
-        if(tracker_mic.amplitude > 0.1){
+        if(tracker_player.frequency>1000){
+            return
+        }
+        if(tracker_mic.amplitude > 0.05){
             var f=Float(tracker_mic.frequency)
             micarray.append(f)
         }
-        if(tracker_player.amplitude > 0.1){
+        if(tracker_player.amplitude > 0.05){
             var f=Float(tracker_player.frequency)
             playerarray.append(f)
         }
-        if micarray.count == 30 {
+        if micarray.count == 10 {
             var n=micarray.count
             var m=playerarray.count
             var dtw = Array(repeating: Array(repeating: 0.0, count: m+1), count: n+1)
@@ -279,15 +283,17 @@ class RecordViewController: UIViewController {
                 }
             }
             var sum = playerarray.reduce(0, +)
-            micarray = []
-            playerarray = []
-            self.pitchScore = Int(100*(1 - dtw[n][m] / sum))
-            if self.pitchScore<0 {
-                self.pitchScore = 0
+            var cur_score = Int(100*(1 - dtw[n][m] / sum))
+            if cur_score<0 {
+                cur_score=0
             }
+            pitchscore_array.append(cur_score)
+            self.pitchScore = Int(pitchscore_array.reduce(0, +)/pitchscore_array.count)
             currentScoreLabel.text = String(self.pitchScore)
+            micarray=[]
+            playerarray=[]
         }
-        if tracker_player.amplitude > 0.1 {
+        if tracker_player.amplitude > 0.05 {
             print(tracker_player.frequency)
             var frequency = Float(tracker_player.frequency)
             while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
@@ -340,14 +346,20 @@ class RecordViewController: UIViewController {
             
             //noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
         }
-        if tracker_mic.amplitude < tracker_player.amplitude {
+        if 2*tracker_mic.amplitude < tracker_player.amplitude {
             self.volumeScore = self.volumeScore-1
         }
-        else if tracker_mic.amplitude > tracker_mic.amplitude*2 {
+        else if tracker_mic.amplitude > tracker_mic.amplitude*3 {
             self.volumeScore = self.volumeScore-1
+        }
+        else {
+            self.volumeScore = self.volumeScore + 1
         }
         if self.volumeScore<0 {
             self.volumeScore = 0
+        }
+        if self.volumeScore>100 {
+            self.volumeScore = 100
         }
         
     }
@@ -519,10 +531,11 @@ class RecordViewController: UIViewController {
         //self.volumeScore = 20
         //self.pitchScore = 30
         self.comment = "Excellent Voice!"
+        print(self.comment)
         
         // Call to the the analyzer
         if self.volumeScore<50 && self.pitchScore>80 {
-            self.comment = "Good Job, your pitch is pretty accurate! However, you should sing louder"
+            
         }
         // Jump to the result page
         performSegue(withIdentifier: "redirectResultPage", sender: self)
