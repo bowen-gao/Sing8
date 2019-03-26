@@ -514,12 +514,13 @@ class RecordViewController: UIViewController {
     
     
     @IBAction func showResult(_ sender: Any) {
+        
         // Hardcoded -> testing purposes
         self.totalScore = Int(0.8*self.pitchScore+0.2*self.volumeScore)
         //self.volumeScore = 20
         //self.pitchScore = 30
         self.comment = "Excellent Voice!"
-        
+        recorder.stop()
         // Call to the the analyzer
         if self.volumeScore<50 && self.pitchScore>80 {
             self.comment = "Good Job, your pitch is pretty accurate! However, you should sing louder"

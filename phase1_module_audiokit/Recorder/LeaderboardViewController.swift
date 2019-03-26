@@ -26,6 +26,8 @@ class LeaderboardViewController: UIViewController {
     var fileName=""
     var userNameInput=""
     
+    var model: UIAlertController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Leaderboard"
@@ -45,9 +47,10 @@ class LeaderboardViewController: UIViewController {
         let group = DispatchGroup()
         
         print("=====> loaded filename: "+fileName)
-        
+        print("=====> submitting request to: "+"https://ece496-sing8.herokuapp.com/api/leaderboard/"+soundtrackTitle)
         group.enter()
         AF.request("https://ece496-sing8.herokuapp.com/api/leaderboard/"+soundtrackTitle).responseString { response in
+            print("=====>"+response.result.value!)
             var dic = self.convertStringToDictionary(text: response.result.value ?? "")
             let status = dic!["status"] as! String
             if(status=="ok"){
@@ -121,15 +124,15 @@ class LeaderboardViewController: UIViewController {
     
     @objc func uploadRequest(){
         // Refers to: https://www.youtube.com/watch?v=Czr5wY7SHOY
-        let modal = UIAlertController(title: "Prepare to upload", message: "Please provide your preferred name to us. Only alphabetic and numeric characters accepted.", preferredStyle: .alert)
-        modal.addTextField()
-        modal.addAction(UIAlertAction(title: "Upload", style: .default, handler: {(_) in
-            self.userNameInput = (modal.textFields?[0].text)!
+        self.model = UIAlertController(title: "Prepare to upload", message: "Please provide your preferred name to us. Only alphabetic and numeric characters accepted.", preferredStyle: .alert)
+        self.model.addTextField()
+        self.model.addAction(UIAlertAction(title: "Upload", style: .default, handler: {(_) in
+            self.userNameInput = (self.model.textFields?[0].text)!
             //print("---->"+self.userNameInput);
             self.confirmUpload(user: self.userNameInput, file: self.fileName)
         }))
-        modal.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(modal, animated:true)
+        self.model.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(self.model, animated:true)
     }
     
     func confirmUpload(user: String, file: String){
@@ -138,6 +141,13 @@ class LeaderboardViewController: UIViewController {
         
         // Prepare POST call to the server-side
         //AF.request("/api/leaderboard", method: .post, parameters[])
+        
+        if(user.count==0){
+            self.model.dismiss(animated: true, completion: nil);
+            self.model = UIAlertController(title: "Upload Cancelled", message: "Your must provide your username.", preferredStyle: .alert)
+            self.model.addAction(UIAlertAction(title: "Retry", style: .cancel, handler: nil))
+            self.present(self.model, animated:true)
+        }
     }
     
 
