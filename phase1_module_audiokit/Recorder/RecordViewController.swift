@@ -136,6 +136,11 @@ class RecordViewController: UIViewController {
         catch{
             AKLog("bgm player error")
         }
+        pitchscore_array=[]
+        micarray=[]
+        playerarray=[]
+        pitchScore=0
+        volumeScore=100
         bgm_player.isLooping = true
         bgm_player.completionHandler = playingEnded
         currentScoreLabel.text = "0"
@@ -490,6 +495,11 @@ class RecordViewController: UIViewController {
     }
  */
     @IBAction func resetButtonTouched(sender: UIButton) {
+        pitchscore_array=[]
+        micarray=[]
+        playerarray=[]
+        pitchScore=0
+        volumeScore=100
         player.stop()
         plot?.node = mic
         do {
@@ -531,14 +541,20 @@ class RecordViewController: UIViewController {
         self.totalScore = Int(0.8*self.pitchScore+0.2*self.volumeScore)
         //self.volumeScore = 20
         //self.pitchScore = 30
-        self.comment = "Excellent Voice!"
-        recorder.stop()
-        print(self.comment)
-        
-        // Call to the the analyzer
-        if self.volumeScore<50 && self.pitchScore>80 {
-            
+        if self.pitchScore>30 {
+            self.comment="Excellent pitch accuracy!"
         }
+        else {
+            self.comment="You should improve pitch accuracy!"
+        }
+        if self.volumeScore>30 {
+            self.comment=self.comment+"\nNice voice！"
+        }
+        else{
+            self.comment=self.comment+"\nYou should sing louder!"
+        }
+
+
         // Jump to the result page
         performSegue(withIdentifier: "redirectResultPage", sender: self)
     }
