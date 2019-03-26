@@ -10,51 +10,51 @@ dataSet["test"] = [
 	[10, "testUser-c", "bensound-creativeminds.mp3", "2019-03-19-03-34"]
 ]
 
-dataSet["分手后不要做朋友"] = [
-	[10, "testUser", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
+dataSet["FenShouHouBuYaoZuoPengYou"] = [
+	[10, "testUser-FS", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
 ];
 
-dataSet["离人"] = [
-	[10, "testUser", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
-];
-
-
-dataSet["青花瓷"] = [
-	[10, "testUser", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
+dataSet["LiRen"] = [
+	[10, "testUser-LR", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
 ];
 
 
-dataSet["喜帖街"] = [
-	[10, "testUser", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
+dataSet["QingHuaCi"] = [
+	[10, "testUser-QH", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
 ];
 
 
-dataSet["Jingle Bells"] = [
-	[10, "testUser", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
+dataSet["XiTieJie"] = [
+	[10, "testUser-XT", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
+];
+
+
+dataSet["JingleBells"] = [
+	[10, "testUser-JB", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
 ];
 
 
 
-dataSet["Just give me a reason"] = [
-	[10, "testUser", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
+dataSet["Justgivemeareason"] = [
+	[10, "testUser-JG", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
 ];
 
 
-dataSet["Lonely Christmas"] = [
-	[10, "testUser", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
+dataSet["LonelyChristmas"] = [
+	[10, "testUser-LC", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
 ];
 
 
-dataSet["My Heart Will Go On"] = [
-	[10, "testUser", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
+dataSet["MyHeartWillGoOn"] = [
+	[10, "testUser-MH", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
 ];
 
-dataSet["Someone Like You"] = [
-	[10, "testUser", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
+dataSet["SomeoneLikeYou"] = [
+	[10, "testUser-SL", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
 ];
 
-dataSet["Yesterday Once More"] = [
-	[10, "testUser", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
+dataSet["YesterdayOnceMore"] = [
+	[10, "testUser-YO", "bensound-creativeminds.mp3", "2019-03-19-02-34"]
 ];
 
 
@@ -75,7 +75,7 @@ let showByTitle = (musicTitle) => {
 	return dataSet[musicTitle].slice(0,10);
 }
 
-let clearRecord = (musicTitle) => {
+let clearRecord = () => {
 	for (let key of Object.keys(dataSet)) {
 		delete dataSet[key];
 	}
