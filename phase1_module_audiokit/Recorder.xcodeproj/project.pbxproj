@@ -33,6 +33,7 @@
 		879816C222433B0B00C3F5FB /* Lonely Christmas.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 879816AE22433B0B00C3F5FB /* Lonely Christmas.mp3 */; };
 		879816C322433B0B00C3F5FB /* My Heart Will Go On.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 879816AF22433B0B00C3F5FB /* My Heart Will Go On.lrc */; };
 		879816C422433B0B00C3F5FB /* 青花瓷.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 879816B022433B0B00C3F5FB /* 青花瓷.lrc */; };
+		87CD37DB224A1F3E001AD4A7 /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 87CD37DA224A1F3E001AD4A7 /* test.txt */; };
 		87F4621721E5C8A800DC66F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */; };
 		87F4621B21E5D31A00DC66F8 /* Soundtracks.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87F4621A21E5D31A00DC66F8 /* Soundtracks.xcassets */; };
 		87F4621D21E5D99600DC66F8 /* SoundtrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4621C21E5D99600DC66F8 /* SoundtrackCell.swift */; };
@@ -88,6 +89,7 @@
 		879816AE22433B0B00C3F5FB /* Lonely Christmas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lonely Christmas.mp3"; sourceTree = "<group>"; };
 		879816AF22433B0B00C3F5FB /* My Heart Will Go On.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "My Heart Will Go On.lrc"; sourceTree = "<group>"; };
 		879816B022433B0B00C3F5FB /* 青花瓷.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "青花瓷.lrc"; sourceTree = "<group>"; };
+		87CD37DA224A1F3E001AD4A7 /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		87F4621621E5C8A800DC66F8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87F4621A21E5D31A00DC66F8 /* Soundtracks.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Soundtracks.xcassets; sourceTree = "<group>"; };
 		87F4621C21E5D99600DC66F8 /* SoundtrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundtrackCell.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		C1E35FFD2230CFE400A0D7E6 /* soundtrack */ = {
 			isa = PBXGroup;
 			children = (
+				87CD37DA224A1F3E001AD4A7 /* test.txt */,
 				879816AD22433B0B00C3F5FB /* 分手后不要做朋友.lrc */,
 				879816AB22433B0B00C3F5FB /* 分手后不要做朋友.mp3 */,
 				879816AC22433B0B00C3F5FB /* 离人.lrc */,
@@ -301,6 +304,7 @@
 				879816C022433B0B00C3F5FB /* 离人.lrc in Resources */,
 				879816B822433B0B00C3F5FB /* Yesterday Once More.mp3 in Resources */,
 				C1C282CD21E7CB78005CED8E /* Santa Monica Dream.lrc in Resources */,
+				87CD37DB224A1F3E001AD4A7 /* test.txt in Resources */,
 				C4486EF31D42AE4700FE135F /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

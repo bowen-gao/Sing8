@@ -5,6 +5,7 @@ const path = require('path');
 let createOneRecord = async (ctx, next) => {
 
 	// Referenced to: https://github.com/koajs/examples
+	
 	const file = ctx.request.files.file;
 	const reader = fs.createReadStream(file.path);
 	const stream = fs.createWriteStream(path.join("./cache/", ctx.request.body.username + "+" + ctx.request.body.music + "+" + ctx.request.body.timestamp+"+.wav"));
@@ -33,9 +34,16 @@ let deleteAll = async (ctx, next) => {
 	ctx.body = { status: "ok"};
 }
 
+let showAllFiles = async (ctx, next) => {
+	var fileList = fs.readdirSync('./cache');
+	ctx.status = 200;
+	ctx.body = { status: "ok" , result: fileList};
+}
+
 module.exports = {
 	createOneRecord: createOneRecord,
 	showAllByTitle: showAllByTitle,
-	deleteAll: deleteAll
+	deleteAll: deleteAll,
+	showAllFiles: showAllFiles
 };
 
