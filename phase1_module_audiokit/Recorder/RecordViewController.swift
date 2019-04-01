@@ -498,8 +498,6 @@ class RecordViewController: UIViewController {
         pitchscore_array=[]
         micarray=[]
         playerarray=[]
-        pitchScore=0
-        volumeScore=100
         player.stop()
         plot?.node = mic
         do {
@@ -541,13 +539,13 @@ class RecordViewController: UIViewController {
         self.totalScore = Int(0.8*self.pitchScore+0.2*self.volumeScore)
         //self.volumeScore = 20
         //self.pitchScore = 30
-        if self.pitchScore>30 {
+        if self.pitchScore>80 {
             self.comment="Excellent pitch accuracy!"
         }
         else {
             self.comment="You should improve pitch accuracy!"
         }
-        if self.volumeScore>30 {
+        if self.volumeScore>80 {
             self.comment=self.comment+"\nNice voice！"
         }
         else{
