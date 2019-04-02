@@ -273,21 +273,18 @@ class RecordViewController: UIViewController {
     @objc func updateF() {
         //infoLabel.text = String(format: "%0.1f", tracker.frequency)
         //print(tracker.amplitude)
-        count = count + 1
-        if(count<150){
-            return
-        }
-        if(tracker_player.frequency>1000){
+        if(tracker_player.frequency>2000){
             return
         }
         print(tracker_player.frequency)
-        if(tracker_mic.amplitude > 0.02){
+        if(tracker_mic.amplitude > 0.05){
             var f=Float(tracker_mic.frequency)
             micarray.append(f)
-        }
-        if(tracker_player.amplitude > 0.05){
-            var f=Float(tracker_player.frequency)
+            f=Float(tracker_player.frequency)
             playerarray.append(f)
+        }
+        else{
+            return
         }
         if micarray.count == 10 {
             
