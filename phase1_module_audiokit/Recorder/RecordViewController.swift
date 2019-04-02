@@ -535,6 +535,9 @@ class RecordViewController: UIViewController {
         volumeScore=100
         micarray=[]
         playerarray=[]
+        currentScoreLabel.text=String(self.pitchScore)
+        userKeyLabel.text=""
+        correctKeyLabel.text=""
         player.stop()
         plot?.node = mic
         do {
