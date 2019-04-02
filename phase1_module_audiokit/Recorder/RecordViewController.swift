@@ -274,7 +274,7 @@ class RecordViewController: UIViewController {
         if(tracker_player.frequency>1000){
             return
         }
-        if(tracker_mic.amplitude > 0.05){
+        if(tracker_mic.amplitude > 0.02){
             var f=Float(tracker_mic.frequency)
             micarray.append(f)
         }
@@ -341,7 +341,7 @@ class RecordViewController: UIViewController {
 
             //noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
         }
-        if tracker_mic.amplitude > 0.1 {
+        if tracker_mic.amplitude > 0.05 {
             var frequency = Float(tracker_mic.frequency)
             while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
                 frequency /= 2.0
