@@ -124,6 +124,14 @@ class RecordViewController: UIViewController {
             AKLog("AudioKit did not start!")
         }
     }
+    
+    override func viewDidDisappear(_ animated: Bool){
+        do{
+            try AudioKit.stop()
+        }catch{
+            print("error")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
