@@ -65,6 +65,9 @@ class LeaderboardViewController: UIViewController {
             let formatter = soundtrackTitle.replacingOccurrences(of: " ", with: "")
             soundtrackTitle = formatter
         }
+        
+        rankList = []
+        
         print("=====> submitting request to: "+"https://ece496-sing8.herokuapp.com/api/leaderboard/"+soundtrackTitle)
         self.group.enter()
         AF.request("https://ece496-sing8.herokuapp.com/api/leaderboard/"+soundtrackTitle.replacingOccurrences(of: " ", with: "")).responseString { response in
@@ -288,8 +291,15 @@ class LeaderboardViewController: UIViewController {
                     //if(self.uploaded){
                         self.waitingStatus.stopAnimating()
                         self.model = UIAlertController(title: "Congratulations!", message: "Your recording is uploaded successfully.", preferredStyle: .alert)
-                        self.model.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    self.model.addAction(UIAlertAction(title: "OK", style: .default, handler: {(_) in
+                        print("refreshing...")
+                        //self.view.setNeedsDisplay()
+                        //self.viewDidLoad()
+                        _ = self.navigationController?.popViewController(animated: true)
+                    }))
                         self.present(self.model, animated:true)
+                    
+                    
                    /* }else{
                         self.waitingStatus.stopAnimating()
                         self.model = UIAlertController(title: "Error", message: "Failed to upload your recording. Please try again later.", preferredStyle: .alert)
