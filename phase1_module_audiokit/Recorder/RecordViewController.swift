@@ -311,7 +311,7 @@ class RecordViewController: UIViewController {
                 }
             }
             var sum = playerarray.reduce(0, +)// + micarray.reduce(0, +)
-            var cur_score = 2*Int(100*(1 - dtw[n][m] / sum))
+            var cur_score = Int(100*(1 - dtw[n][m] / sum))
             if cur_score<0 {
                 cur_score=0
             }
