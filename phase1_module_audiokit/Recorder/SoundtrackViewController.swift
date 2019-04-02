@@ -17,6 +17,7 @@ class SoundtrackViewController: UIViewController {
     
     func initSoundtrackList() -> [Soundtrack] {
         var result: [Soundtrack] = []
+        result.append(Soundtrack(title:"富士山下"));
         result.append(Soundtrack(title:"分手后不要做朋友"));
         result.append(Soundtrack(title:"离人"));
         result.append(Soundtrack(title:"青花瓷"));

@@ -55,6 +55,8 @@ class LeaderboardViewController: UIViewController {
             soundtrackTitle = "FenShouHouBuYaoZuoPengYou"
         }else if(soundtrackTitle=="离人"){
             soundtrackTitle = "LiRen"
+        }else if(soundtrackTitle=="富士山下"){
+            soundtrackTitle = "FuShiShanXia"
         }else if(soundtrackTitle=="青花瓷"){
             soundtrackTitle = "QingHuaCi"
         }else if(soundtrackTitle=="喜帖街"){
