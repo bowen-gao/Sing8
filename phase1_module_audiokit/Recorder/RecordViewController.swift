@@ -44,11 +44,11 @@ class RecordViewController: UIViewController {
     var soundtrack: Soundtrack?
     
     var totalScore = 0
-    var volumeScore = 0
+    var volumeScore = 0.0
     var pitchScore = 0
     var comment = ""
     var recordFile = ""
-    
+    var count = 0
     @IBOutlet weak var currentScoreLabel: UILabel!
     @IBOutlet weak var correctKeyLabel: UILabel!
     @IBOutlet weak var userKeyLabel: UILabel!
@@ -221,7 +221,7 @@ class RecordViewController: UIViewController {
             timer = nil
         }
         
-        currentTime = 0
+        currentTime = -8
         lyricsView.scroll(toTime: currentTime, animated: true)
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (_) in
@@ -267,6 +267,10 @@ class RecordViewController: UIViewController {
     @objc func updateF() {
         //infoLabel.text = String(format: "%0.1f", tracker.frequency)
         //print(tracker.amplitude)
+        count = count + 1
+        if(count<150){
+            return
+        }
         if(tracker_player.frequency>1000){
             return
         }
@@ -279,8 +283,12 @@ class RecordViewController: UIViewController {
             playerarray.append(f)
         }
         if micarray.count == 10 {
+            
             var n=micarray.count
             var m=playerarray.count
+            if(m<1){
+                return
+            }
             var dtw = Array(repeating: Array(repeating: 0.0, count: m+1), count: n+1)
             for i in 1...n {
                 dtw[i][0] = Double.infinity
@@ -307,7 +315,7 @@ class RecordViewController: UIViewController {
             playerarray=[]
         }
         if tracker_player.amplitude > 0.05 {
-            print(tracker_player.frequency)
+            //print(tracker_player.frequency)
             var frequency = Float(tracker_player.frequency)
             while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
                 frequency /= 2.0
@@ -360,13 +368,13 @@ class RecordViewController: UIViewController {
             //noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
         }
         if 2*tracker_mic.amplitude < tracker_player.amplitude {
-            self.volumeScore = self.volumeScore-1
+            self.volumeScore = self.volumeScore-0.1
         }
         else if tracker_mic.amplitude > tracker_mic.amplitude*3 {
-            self.volumeScore = self.volumeScore-1
+            self.volumeScore = self.volumeScore-0.1
         }
         else {
-            self.volumeScore = self.volumeScore + 1
+            self.volumeScore = self.volumeScore + 0.1
         }
         if self.volumeScore<0 {
             self.volumeScore = 0
@@ -506,8 +514,6 @@ class RecordViewController: UIViewController {
         pitchscore_array=[]
         micarray=[]
         playerarray=[]
-        pitchScore=0
-        volumeScore=100
         player.stop()
         plot?.node = mic
         do {
@@ -549,13 +555,13 @@ class RecordViewController: UIViewController {
         self.totalScore = Int(0.8*self.pitchScore+0.2*self.volumeScore)
         //self.volumeScore = 20
         //self.pitchScore = 30
-        if self.pitchScore>30 {
+        if self.pitchScore>80 {
             self.comment="Excellent pitch accuracy!"
         }
         else {
             self.comment="You should improve pitch accuracy!"
         }
-        if self.volumeScore>30 {
+        if self.volumeScore>80 {
             self.comment=self.comment+"\nNice voice！"
         }
         else{
@@ -572,7 +578,7 @@ class RecordViewController: UIViewController {
         viewController.musicTitle = soundtrack!.title
         viewController.totalScore = self.totalScore
         viewController.pitchScore = self.pitchScore
-        viewController.volumeScore = self.volumeScore
+        viewController.volumeScore = Int(self.volumeScore)
         viewController.comment = self.comment
         viewController.fileName = self.recordFile
     }
