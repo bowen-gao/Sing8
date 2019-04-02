@@ -210,7 +210,6 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="resetButtonTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yZg-lo-GG9"/>
                                                     <action selector="saveButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hgk-fJ-YAm"/>
                                                     <action selector="showResult:" destination="BYZ-38-t0r" eventType="touchUpInside" id="szF-6n-QsU"/>
                                                 </connections>

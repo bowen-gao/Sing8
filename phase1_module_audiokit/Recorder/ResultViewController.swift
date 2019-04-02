@@ -32,6 +32,8 @@ class ResultViewController: UIViewController {
         pitchScoreLabel.text = String(pitchScore)+"%"
         volumeScoreLabel.text = String(volumeScore)+"%"
         commentTextLabel.text = comment
+        
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
 
