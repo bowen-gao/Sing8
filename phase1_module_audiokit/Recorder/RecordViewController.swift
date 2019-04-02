@@ -273,24 +273,23 @@ class RecordViewController: UIViewController {
     @objc func updateF() {
         //infoLabel.text = String(format: "%0.1f", tracker.frequency)
         //print(tracker.amplitude)
+        count = count+1
         if(tracker_player.frequency>2000){
             return
         }
+        var f=Float(tracker_player.frequency)
+        playerarray.append(f)
         print(tracker_player.frequency)
-        if(tracker_mic.amplitude > 0.05){
+        if(tracker_mic.amplitude > 0.02){
             var f=Float(tracker_mic.frequency)
             micarray.append(f)
-            f=Float(tracker_player.frequency)
-            playerarray.append(f)
         }
-        else{
-            return
-        }
-        if micarray.count == 10 {
-            
+
+        if(count > 20) {
+            count=0
             var n=micarray.count
             var m=playerarray.count
-            if(m<1){
+            if(m<1 || n<1){
                 return
             }
             var dtw = Array(repeating: Array(repeating: 0.0, count: m+1), count: n+1)
@@ -307,7 +306,7 @@ class RecordViewController: UIViewController {
                     dtw[i][j] = cost + min(dtw[i-1][j], dtw[i][j-1], dtw[i-1][j-1])    // match
                 }
             }
-            var sum = playerarray.reduce(0, +) + micarray.reduce(0, +)
+            var sum = playerarray.reduce(0, +) //+ micarray.reduce(0, +)
             var cur_score = Int(100*(1 - dtw[n][m] / sum))
             if cur_score<0 {
                 cur_score=0
