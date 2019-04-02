@@ -135,6 +135,7 @@ class RecordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view, typically from a nib.
         //print(soundtrack?.title)
         do{
@@ -274,6 +275,7 @@ class RecordViewController: UIViewController {
         if(tracker_player.frequency>1000){
             return
         }
+        print(tracker_player.frequency)
         if(tracker_mic.amplitude > 0.02){
             var f=Float(tracker_mic.frequency)
             micarray.append(f)
@@ -385,10 +387,16 @@ class RecordViewController: UIViewController {
         
     }
     @IBAction func mainButtonTouched(sender: UIButton) {
+        do {
+            try AudioKit.start()
+        } catch {
+            AKLog("AudioKit did not start!")
+        }
         if (ftimer != nil) {
             ftimer?.invalidate()
             ftimer = nil
         }
+        count = 0
         switch state {
         case .readyToRecord :
             infoLabel.text = "Recording"
@@ -512,6 +520,8 @@ class RecordViewController: UIViewController {
  */
     @IBAction func resetButtonTouched(sender: UIButton) {
         pitchscore_array=[]
+        pitchScore=0
+        volumeScore=100
         micarray=[]
         playerarray=[]
         player.stop()
