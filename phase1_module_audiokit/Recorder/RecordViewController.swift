@@ -226,13 +226,20 @@ class RecordViewController: UIViewController {
             timer?.invalidate()
             timer = nil
         }
-        
-        currentTime = -8
+        if(soundtrack?.title=="jingle bells2.mp3"){
+            currentTime = 7.5
+        }
+        if(soundtrack?.title=="Jingle Bells.mp3"){
+            currentTime = -8
+        }
+        else{
+            currentTime = 0
+        }
         lyricsView.scroll(toTime: currentTime, animated: true)
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (_) in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (_) in
             self.lyricsView.scroll(toTime: self.currentTime, animated: true)
-            self.currentTime += 0.5
+            self.currentTime += 0.1
             if (self.currentTime >= self.totalDuration) {
                 //self.stop()
             }
@@ -306,10 +313,13 @@ class RecordViewController: UIViewController {
                     dtw[i][j] = cost + min(dtw[i-1][j], dtw[i][j-1], dtw[i-1][j-1])    // match
                 }
             }
-            var sum = playerarray.reduce(0, +) //+ micarray.reduce(0, +)
-            var cur_score = Int(100*(1 - dtw[n][m] / sum))
+            var sum = playerarray.reduce(0, +)// + micarray.reduce(0, +)
+            var cur_score = 2*Int(100*(1 - dtw[n][m] / sum))
             if cur_score<0 {
                 cur_score=0
+            }
+            if cur_score>100 {
+                cur_score=100
             }
             pitchscore_array.append(cur_score)
             self.pitchScore = Int(pitchscore_array.reduce(0, +)/pitchscore_array.count)

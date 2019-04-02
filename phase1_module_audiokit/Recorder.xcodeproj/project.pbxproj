@@ -45,6 +45,9 @@
 		C1E360072235C7E900A0D7E6 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E360062235C7E900A0D7E6 /* ResultViewController.swift */; };
 		C1E44C8B2253308000986B3D /* two tigers.wav in Resources */ = {isa = PBXBuildFile; fileRef = C1E44C8A2253308000986B3D /* two tigers.wav */; };
 		C1E44C8D225330D900986B3D /* two tigers.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C1E44C8C225330D900986B3D /* two tigers.lrc */; };
+		C1E44C8F2253D73A00986B3D /* happy birthday to you.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1E44C8E2253D73A00986B3D /* happy birthday to you.mp3 */; };
+		C1E44C922253DF4C00986B3D /* jingle bells2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1E44C902253DF4B00986B3D /* jingle bells2.mp3 */; };
+		C1E44C932253DF4C00986B3D /* jingle bells2.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C1E44C912253DF4B00986B3D /* jingle bells2.lrc */; };
 		C4486EF11D42AE4700FE135F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4486EE91D42AE4700FE135F /* AppDelegate.swift */; };
 		C4486EF21D42AE4700FE135F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4486EEA1D42AE4700FE135F /* Assets.xcassets */; };
 		C4486EF31D42AE4700FE135F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4486EEB1D42AE4700FE135F /* LaunchScreen.storyboard */; };
@@ -106,6 +109,9 @@
 		C1E360062235C7E900A0D7E6 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		C1E44C8A2253308000986B3D /* two tigers.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "two tigers.wav"; sourceTree = "<group>"; };
 		C1E44C8C225330D900986B3D /* two tigers.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "two tigers.lrc"; sourceTree = "<group>"; };
+		C1E44C8E2253D73A00986B3D /* happy birthday to you.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "happy birthday to you.mp3"; sourceTree = "<group>"; };
+		C1E44C902253DF4B00986B3D /* jingle bells2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "jingle bells2.mp3"; sourceTree = "<group>"; };
+		C1E44C912253DF4B00986B3D /* jingle bells2.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "jingle bells2.lrc"; sourceTree = "<group>"; };
 		C4486EE91D42AE4700FE135F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4486EEA1D42AE4700FE135F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4486EEC1D42AE4700FE135F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -176,6 +182,9 @@
 		C1E35FFD2230CFE400A0D7E6 /* soundtrack */ = {
 			isa = PBXGroup;
 			children = (
+				C1E44C912253DF4B00986B3D /* jingle bells2.lrc */,
+				C1E44C902253DF4B00986B3D /* jingle bells2.mp3 */,
+				C1E44C8E2253D73A00986B3D /* happy birthday to you.mp3 */,
 				C1E44C8C225330D900986B3D /* two tigers.lrc */,
 				C1E44C8A2253308000986B3D /* two tigers.wav */,
 				87CD37DA224A1F3E001AD4A7 /* test.txt */,
@@ -298,15 +307,18 @@
 				C4486EF21D42AE4700FE135F /* Assets.xcassets in Resources */,
 				87F4621721E5C8A800DC66F8 /* LaunchScreen.storyboard in Resources */,
 				879816BA22433B0B00C3F5FB /* Just give me a reason.lrc in Resources */,
+				C1E44C922253DF4C00986B3D /* jingle bells2.mp3 in Resources */,
 				879816B722433B0B00C3F5FB /* 喜帖街.lrc in Resources */,
 				879816B622433B0B00C3F5FB /* Just give me a reason.mp3 in Resources */,
 				879816BC22433B0B00C3F5FB /* Someone Like You.mp3 in Resources */,
 				879816B222433B0B00C3F5FB /* My Heart Will Go On.mp3 in Resources */,
 				879816B422433B0B00C3F5FB /* Jingle Bells.lrc in Resources */,
+				C1E44C932253DF4C00986B3D /* jingle bells2.lrc in Resources */,
 				879816BF22433B0B00C3F5FB /* 分手后不要做朋友.mp3 in Resources */,
 				879816BD22433B0B00C3F5FB /* Yesterday Once More.lrc in Resources */,
 				879816C422433B0B00C3F5FB /* 青花瓷.lrc in Resources */,
 				87F4621B21E5D31A00DC66F8 /* Soundtracks.xcassets in Resources */,
+				C1E44C8F2253D73A00986B3D /* happy birthday to you.mp3 in Resources */,
 				879816BE22433B0B00C3F5FB /* Jingle Bells.mp3 in Resources */,
 				874DA34922530CA5006111CC /* 富士山下.lrc in Resources */,
 				C1E44C8D225330D900986B3D /* two tigers.lrc in Resources */,

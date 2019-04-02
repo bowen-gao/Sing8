@@ -29,6 +29,8 @@ class SoundtrackViewController: UIViewController {
         result.append(Soundtrack(title:"Someone Like You.mp3"));
         result.append(Soundtrack(title:"Yesterday Once More.mp3"));
         result.append(Soundtrack(title:"two tigers.wav"));
+        result.append(Soundtrack(title:"happy birthday to you.mp3"));
+        result.append(Soundtrack(title:"jingle bells2.mp3"));
         return result
     }
     
