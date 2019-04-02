@@ -17,17 +17,18 @@ class SoundtrackViewController: UIViewController {
     
     func initSoundtrackList() -> [Soundtrack] {
         var result: [Soundtrack] = []
-        result.append(Soundtrack(title:"富士山下"));
-        result.append(Soundtrack(title:"分手后不要做朋友"));
-        result.append(Soundtrack(title:"离人"));
-        result.append(Soundtrack(title:"青花瓷"));
-        result.append(Soundtrack(title:"喜帖街"));
-        result.append(Soundtrack(title:"Jingle Bells"));
-        result.append(Soundtrack(title:"Just give me a reason"));
-        result.append(Soundtrack(title:"Lonely Christmas"));
-        result.append(Soundtrack(title:"My Heart Will Go On"));
-        result.append(Soundtrack(title:"Someone Like You"));
-        result.append(Soundtrack(title:"Yesterday Once More"));
+        result.append(Soundtrack(title:"富士山下.mp3"));
+        result.append(Soundtrack(title:"分手后不要做朋友.mp3"));
+        result.append(Soundtrack(title:"离人.mp3"));
+        result.append(Soundtrack(title:"青花瓷.mp3"));
+        result.append(Soundtrack(title:"喜帖街.mp3"));
+        result.append(Soundtrack(title:"Jingle Bells.mp3"));
+        result.append(Soundtrack(title:"Just give me a reason.mp3"));
+        result.append(Soundtrack(title:"Lonely Christmas.mp3"));
+        result.append(Soundtrack(title:"My Heart Will Go On.mp3"));
+        result.append(Soundtrack(title:"Someone Like You.mp3"));
+        result.append(Soundtrack(title:"Yesterday Once More.mp3"));
+        result.append(Soundtrack(title:"two tigers.wav"));
         return result
     }
     

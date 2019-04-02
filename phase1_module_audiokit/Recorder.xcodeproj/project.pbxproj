@@ -43,6 +43,8 @@
 		87F4622121E5DDB300DC66F8 /* Soundtrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F4622021E5DDB300DC66F8 /* Soundtrack.swift */; };
 		C1C282CD21E7CB78005CED8E /* Santa Monica Dream.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C1C282CC21E7CB78005CED8E /* Santa Monica Dream.lrc */; };
 		C1E360072235C7E900A0D7E6 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E360062235C7E900A0D7E6 /* ResultViewController.swift */; };
+		C1E44C8B2253308000986B3D /* two tigers.wav in Resources */ = {isa = PBXBuildFile; fileRef = C1E44C8A2253308000986B3D /* two tigers.wav */; };
+		C1E44C8D225330D900986B3D /* two tigers.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C1E44C8C225330D900986B3D /* two tigers.lrc */; };
 		C4486EF11D42AE4700FE135F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4486EE91D42AE4700FE135F /* AppDelegate.swift */; };
 		C4486EF21D42AE4700FE135F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4486EEA1D42AE4700FE135F /* Assets.xcassets */; };
 		C4486EF31D42AE4700FE135F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4486EEB1D42AE4700FE135F /* LaunchScreen.storyboard */; };
@@ -102,6 +104,8 @@
 		8DAD9EDD1D3E4A3400CD3B0A /* Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1C282CC21E7CB78005CED8E /* Santa Monica Dream.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Santa Monica Dream.lrc"; sourceTree = "<group>"; };
 		C1E360062235C7E900A0D7E6 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		C1E44C8A2253308000986B3D /* two tigers.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "two tigers.wav"; sourceTree = "<group>"; };
+		C1E44C8C225330D900986B3D /* two tigers.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "two tigers.lrc"; sourceTree = "<group>"; };
 		C4486EE91D42AE4700FE135F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4486EEA1D42AE4700FE135F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4486EEC1D42AE4700FE135F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 		C1E35FFD2230CFE400A0D7E6 /* soundtrack */ = {
 			isa = PBXGroup;
 			children = (
+				C1E44C8C225330D900986B3D /* two tigers.lrc */,
+				C1E44C8A2253308000986B3D /* two tigers.wav */,
 				87CD37DA224A1F3E001AD4A7 /* test.txt */,
 				879816AD22433B0B00C3F5FB /* 分手后不要做朋友.lrc */,
 				879816AB22433B0B00C3F5FB /* 分手后不要做朋友.mp3 */,
@@ -303,10 +309,12 @@
 				87F4621B21E5D31A00DC66F8 /* Soundtracks.xcassets in Resources */,
 				879816BE22433B0B00C3F5FB /* Jingle Bells.mp3 in Resources */,
 				874DA34922530CA5006111CC /* 富士山下.lrc in Resources */,
+				C1E44C8D225330D900986B3D /* two tigers.lrc in Resources */,
 				879816B122433B0B00C3F5FB /* Lonely Christmas.lrc in Resources */,
 				879816C122433B0B00C3F5FB /* 分手后不要做朋友.lrc in Resources */,
 				879816B522433B0B00C3F5FB /* 喜帖街.mp3 in Resources */,
 				879816C322433B0B00C3F5FB /* My Heart Will Go On.lrc in Resources */,
+				C1E44C8B2253308000986B3D /* two tigers.wav in Resources */,
 				874DA34822530CA5006111CC /* 富士山下.mp3 in Resources */,
 				C4486EF41D42AE4700FE135F /* Main.storyboard in Resources */,
 				879816C022433B0B00C3F5FB /* 离人.lrc in Resources */,

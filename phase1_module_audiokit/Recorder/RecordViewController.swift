@@ -139,7 +139,9 @@ class RecordViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         //print(soundtrack?.title)
         do{
-            let file = try AKAudioFile(forReading: URL.init(fileURLWithPath: Bundle.main.path(forResource: soundtrack?.title, ofType: "mp3")!))
+            //let file = try AKAudioFile(forReading: URL.init(fileURLWithPath: Bundle.main.path(forResource: soundtrack?.title, ofType: "mp3")!))
+            let filename = soundtrack?.title
+            let file = try AKAudioFile(readFileName: filename ?? " ")
             bgm_player.load(audioFile: file)
         }
         catch{
@@ -159,12 +161,15 @@ class RecordViewController: UIViewController {
         setupButtonNames()
         setupUIForRecording()
         // Read the test LRC file
+        var name = soundtrack?.title
+        let newname = String(name?.dropLast(4) ?? " ")
+        print(newname)
         guard
-            let path = Bundle.main.path(forResource: soundtrack?.title, ofType: "lrc"),
+            let path = Bundle.main.path(forResource: newname, ofType: "lrc"),
             let stream = InputStream(fileAtPath: path)
             else {
                 return
-        }
+            }
         
         var data = Data.init()
         
