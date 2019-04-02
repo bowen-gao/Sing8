@@ -226,9 +226,6 @@ class RecordViewController: UIViewController {
             timer?.invalidate()
             timer = nil
         }
-        if(soundtrack?.title=="jingle bells2.mp3"){
-            currentTime = 7.5
-        }
         if(soundtrack?.title=="Jingle Bells.mp3"){
             currentTime = -8
         }
