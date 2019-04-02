@@ -100,15 +100,18 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate{
         
         avPlayer.play();
         print("playing music!")
+        self.title = "Playing..."
     }
     
     @objc func finishedPlaying( _ myNotification:NSNotification) {
         print("Stop playing music!")
+        self.title = "History"
     }
     
     private func bgmStop(){
         avPlayer.pause()
         avPlayer.seek(to: .zero)
         print("Stop playing music!")
+        self.title = "History"
     }
 }
