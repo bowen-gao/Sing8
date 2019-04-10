@@ -281,15 +281,18 @@ class RecordViewController: UIViewController {
         if(tracker_player.frequency>2000){
             return
         }
-        var f=Float(tracker_player.frequency)
-        playerarray.append(f)
+        if(tracker_player.amplitude>0.02){
+            var f=Float(tracker_player.frequency)
+            playerarray.append(f)
+        }
+        
         print(tracker_player.frequency)
         if(tracker_mic.amplitude > 0.02){
             var f=Float(tracker_mic.frequency)
             micarray.append(f)
         }
-
-        if(count > 20) {
+        """
+        if(count > 10) {
             count=0
             var n=micarray.count
             var m=playerarray.count
@@ -310,7 +313,7 @@ class RecordViewController: UIViewController {
                     dtw[i][j] = cost + min(dtw[i-1][j], dtw[i][j-1], dtw[i-1][j-1])    // match
                 }
             }
-            var sum = 2*playerarray.reduce(0, +)// + micarray.reduce(0, +)
+            var sum = playerarray.reduce(0, +)// + micarray.reduce(0, +)
             var cur_score = Int(100*(1 - dtw[n][m] / sum))
             if cur_score<0 {
                 cur_score=0
@@ -318,13 +321,56 @@ class RecordViewController: UIViewController {
             if cur_score>100 {
                 cur_score=100
             }
-            pitchscore_array.append(cur_score)
+            var dist=dtw[n][m]
+            if(Float(dist)>=sum){
+                pitchscore_array.append(0)
+            }
+            else if(dist>=0.75*sum){
+                pitchscore_array.append(25)
+            }
+            else if(dist>=0.5*sum){
+                pitchscore_array.append(50)
+            }
+            else if(dist>=0.25*sum){
+                pitchscore_array.append(75)
+            }
+            else{
+                pitchscore_array.append(100)
+            }
+            //pitchscore_array.append(cur_score)
             self.pitchScore = Int(pitchscore_array.reduce(0, +)/pitchscore_array.count)
             currentScoreLabel.text = String(self.pitchScore)
             micarray=[]
             playerarray=[]
         }
-        if tracker_player.amplitude > 0.05 {
+        """
+        if(tracker_mic.amplitude > 0.02){
+            if(tracker_player.amplitude>0.02){
+                var fmic=Float(tracker_mic.frequency)
+                var fplayer=Float(tracker_player.frequency)
+                var dist=abs(fmic-fplayer)
+                if(dist>=fmic){
+                    pitchscore_array.append(0)
+                }
+                else if(dist>=0.75*fmic){
+                    pitchscore_array.append(25)
+                }
+                else if(dist>=0.5*fmic){
+                    pitchscore_array.append(50)
+                }
+                else if(dist>=0.25*fmic){
+                    pitchscore_array.append(75)
+                }
+                else{
+                    pitchscore_array.append(100)
+                }
+                self.pitchScore = Int(pitchscore_array.reduce(0, +)/pitchscore_array.count)
+                currentScoreLabel.text = String(self.pitchScore)
+            }
+            
+        }
+        
+        if tracker_player.amplitude > 0.02 {
             //print(tracker_player.frequency)
             var frequency = Float(tracker_player.frequency)
             while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
@@ -351,7 +397,7 @@ class RecordViewController: UIViewController {
 
             //noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
         }
-        if tracker_mic.amplitude > 0.05 {
+        if tracker_mic.amplitude > 0.02 {
             var frequency = Float(tracker_mic.frequency)
             while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
                 frequency /= 2.0
